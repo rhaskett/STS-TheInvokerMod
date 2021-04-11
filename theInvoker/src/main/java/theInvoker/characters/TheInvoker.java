@@ -119,10 +119,7 @@ public class TheInvoker extends CustomPlayer {
 
         // =============== ANIMATIONS =================  
 
-        loadAnimation(
-                THE_INVOKER_SKELETON_ATLAS,
-                THE_INVOKER_SKELETON_JSON,
-                1.0f);
+        loadAnimation(THE_INVOKER_SKELETON_ATLAS, THE_INVOKER_SKELETON_JSON, 1.0f);
         AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
         e.setTime(e.getEndTime() * MathUtils.random());
 
@@ -155,21 +152,24 @@ public class TheInvoker extends CustomPlayer {
 
         logger.info("Begin loading starter Deck Strings");
 
-        retVal.add(DefaultCommonAttack.ID);
-        retVal.add(DefaultUncommonAttack.ID);
-        retVal.add(DefaultRareAttack.ID);
+        retVal.add(Attack.ID);
+        retVal.add(Attack.ID);
+        retVal.add(Attack.ID);
+        retVal.add(Attack.ID);
 
-        retVal.add(DefaultCommonSkill.ID);
-        retVal.add(DefaultUncommonSkill.ID);
-        retVal.add(DefaultRareSkill.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
 
-        retVal.add(DefaultCommonPower.ID);
-        retVal.add(DefaultUncommonPower.ID);
-        retVal.add(DefaultRarePower.ID);
+        retVal.add(ColdSnap.ID);
+        retVal.add(Cataclysm.ID);
+        retVal.add(Exort.ID);
 
-        retVal.add(DefaultAttackWithVariable.ID);
-        retVal.add(DefaultSecondMagicNumberSkill.ID);
-        retVal.add(OrbSkill.ID);
+        retVal.add(Quas.ID);
+        retVal.add(Quas.ID);
+        retVal.add(Quas.ID);
+
         return retVal;
     }
 
@@ -178,7 +178,7 @@ public class TheInvoker extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
 
         retVal.add(PlaceholderRelic.ID);
-        retVal.add(PlaceholderRelic2.ID);
+//        retVal.add(PlaceholderRelic2.ID);
         retVal.add(DefaultClickableRelic.ID);
 
         // Mark relics as seen - makes it visible in the compendium immediately
@@ -239,8 +239,8 @@ public class TheInvoker extends CustomPlayer {
     //Which card should be obtainable from the Match and Keep event?
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new DefaultCommonAttack();
-    }
+        return new Attack();
+    } // TODO which event?
 
     // The class name as it appears next to your player name in-game
     @Override

@@ -1,4 +1,36 @@
 {
+  "theInvoker:Attack": {
+    "NAME": "Attack",
+    "DESCRIPTION": "Deal !D! damage"
+  },
+  "theInvoker:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+
+  "theInvoker:Quas": {
+    "NAME": "Quas",
+    "DESCRIPTION": "Channel 1 Quas Orb. NL Gain !M! Repair."
+  },
+  "theInvoker:Wex": {
+    "NAME": "Wex",
+    "DESCRIPTION": "Channel 1 Wez Orb."
+  },
+  "theInvoker:Exort": {
+    "NAME": "Exort",
+    "DESCRIPTION": "Channel 1 Exort Orb. NL Gain !M! Strength."
+  },
+
+  "theInvoker:Cataclysm": {
+    "NAME": "Cataclysm",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+  },
+  "theInvoker:ColdSnap": {
+    "NAME": "Cold Snap",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+
+
   "theInvoker:DefaultCommonAttack": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage. NL [#0000ff]This[] [#ff0000]Is[] [#ffff00]How[] [#88888]color[] [#ff00ff]works.[]"

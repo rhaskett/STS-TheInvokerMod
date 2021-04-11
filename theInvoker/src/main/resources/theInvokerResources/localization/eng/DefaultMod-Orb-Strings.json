@@ -1,4 +1,27 @@
 {
+
+  "theInvoker:QuasOrb": {
+    "NAME": "Quas Orb",
+    "DESCRIPTION": [
+      "Invokable",
+      " NL #yEvoke: Lose #b Repair."
+    ]
+  },
+  "theInvoker:WexOrb": {
+    "NAME": "Wex Orb",
+    "DESCRIPTION": [
+      "Invokable",
+      " NL #yEvoke: Enemies gain #b Strength."
+    ]
+  },
+  "theInvoker:ExortOrb": {
+    "NAME": "Exort Orb",
+    "DESCRIPTION": [
+      "Invokable",
+      " NL #yEvoke: Lose #b Strength."
+    ]
+  },
+
   "theInvoker:DefaultOrb": {
     "NAME": "Default Orb",
     "DESCRIPTION": [

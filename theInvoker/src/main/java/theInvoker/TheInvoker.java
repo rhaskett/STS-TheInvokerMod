@@ -1,7 +1,9 @@
 package theInvoker;
 
-import basemod.*;
-import basemod.eventUtil.AddEventParams;
+import basemod.AutoAdd;
+import basemod.BaseMod;
+import basemod.ModLabeledToggleButton;
+import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -13,15 +15,13 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import theInvoker.cards.*;
-import theInvoker.events.IdentityCrisisEvent;
+import theInvoker.cards.AbstractDefaultCard;
 import theInvoker.potions.PlaceholderPotion;
 import theInvoker.relics.BottledPlaceholderRelic;
 import theInvoker.relics.DefaultClickableRelic;
@@ -30,7 +30,6 @@ import theInvoker.relics.PlaceholderRelic2;
 import theInvoker.util.IDCheckDontTouchPls;
 import theInvoker.util.TextureLoader;
 import theInvoker.variables.DefaultCustomVariable;
-import theInvoker.variables.DefaultSecondMagicNumber;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -371,7 +370,7 @@ public class TheInvoker implements
         logger.info("Add variables");
         // Add the Custom Dynamic variables
         BaseMod.addDynamicVariable(new DefaultCustomVariable());
-        BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
+//        BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
         
         logger.info("Adding cards");
         // Don't delete these default cards yet. You need 1 of each type and rarity (technically) for your game not to crash
