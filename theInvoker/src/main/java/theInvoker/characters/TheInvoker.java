@@ -162,13 +162,17 @@ public class TheInvoker extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
 
-        retVal.add(ColdSnap.ID);
-        retVal.add(Cataclysm.ID);
         retVal.add(Exort.ID);
+        retVal.add(Exort.ID);
+        retVal.add(Invoke.ID);
+        retVal.add(Invoke.ID);
 
-        retVal.add(Quas.ID);
-        retVal.add(Quas.ID);
-        retVal.add(Quas.ID);
+
+//        retVal.add(ColdSnap.ID);
+//        retVal.add(Cataclysm.ID);
+//        retVal.add(Quas.ID);
+//        retVal.add(Quas.ID);
+//        retVal.add(Quas.ID);
 
         return retVal;
     }

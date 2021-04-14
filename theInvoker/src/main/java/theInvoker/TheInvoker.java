@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import theInvoker.cards.AbstractDefaultCard;
+import theInvoker.cards.AbstractInvokerCard;
 import theInvoker.potions.PlaceholderPotion;
 import theInvoker.relics.BottledPlaceholderRelic;
 import theInvoker.relics.DefaultClickableRelic;
@@ -384,7 +384,7 @@ public class TheInvoker implements
         // It's the mod id you give MTS in ModTheSpire.json - by default your artifact ID in your pom.xml
 
         new AutoAdd("TheInvoker") // ${project.artifactId}
-            .packageFilter(AbstractDefaultCard.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
+            .packageFilter(AbstractInvokerCard.class) // filters to any class in the same package as AbstractInvokerCard, nested packages included
             .setDefaultSeen(true)
             .cards();
 

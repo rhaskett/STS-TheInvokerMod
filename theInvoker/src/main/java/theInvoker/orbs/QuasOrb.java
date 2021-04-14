@@ -21,11 +21,12 @@ import theInvoker.TheInvoker;
 
 import static theInvoker.TheInvoker.makeOrbPath;
 
-public class QuasOrb extends CustomOrb {
+public class QuasOrb extends InvokerOrb {
 
     public static final String ORB_ID = TheInvoker.makeID(QuasOrb.class.getSimpleName());
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESCRIPTIONS = orbString.DESCRIPTION;
+    public static final String ORB_KEY = "Q";
 
     private static final int PASSIVE_AMOUNT = 0;
     private static final int EVOKE_AMOUNT = 1;
@@ -51,12 +52,6 @@ public class QuasOrb extends CustomOrb {
     public void updateDescription() {
         applyFocus();
         description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
-    }
-
-    @Override
-    public void applyFocus() {
-        passiveAmount = basePassiveAmount;
-        evokeAmount = baseEvokeAmount;
     }
 
     @Override

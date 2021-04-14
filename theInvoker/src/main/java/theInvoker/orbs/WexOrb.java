@@ -25,11 +25,12 @@ import java.util.Iterator;
 
 import static theInvoker.TheInvoker.makeOrbPath;
 
-public class WexOrb extends CustomOrb {
+public class WexOrb extends InvokerOrb {
 
     public static final String ORB_ID = TheInvoker.makeID(WexOrb.class.getSimpleName());
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESCRIPTIONS = orbString.DESCRIPTION;
+    public static final String ORB_KEY = "W";
 
     private static final int PASSIVE_AMOUNT = 0;
     private static final int EVOKE_AMOUNT = 1;
@@ -59,20 +60,10 @@ public class WexOrb extends CustomOrb {
     }
 
     @Override
-    public void applyFocus() {
-        passiveAmount = basePassiveAmount;
-        evokeAmount = baseEvokeAmount;
-    }
-
-    @Override
     public void onEvoke() {
-        Iterator<AbstractMonster> var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-
-        AbstractMonster mo;
-        while(var3.hasNext()) {
-            mo = var3.next();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, AbstractDungeon.player,
-                    new StrengthPower(mo, this.evokeAmount), this.evokeAmount,
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, AbstractDungeon.player,
+                    new StrengthPower(monster, this.evokeAmount), this.evokeAmount,
                     true, AbstractGameAction.AttackEffect.NONE));
         }
 

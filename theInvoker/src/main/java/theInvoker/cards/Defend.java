@@ -9,7 +9,7 @@ import theInvoker.characters.TheInvoker;
 import static theInvoker.TheInvoker.makeCardPath;
 import static theInvoker.TheInvoker.makeID;
 
-public class Defend extends AbstractDefaultCard {
+public class Defend extends AbstractInvokerCard {
     public static final String ID = makeID(Defend.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Skill.png");
 

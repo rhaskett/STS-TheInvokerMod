@@ -9,7 +9,7 @@ import theInvoker.characters.TheInvoker;
 import static theInvoker.TheInvoker.makeCardPath;
 import static theInvoker.TheInvoker.makeID;
 
-public class ColdSnap extends AbstractDefaultCard {
+public class ColdSnap extends AbstractInvokerCard {
     public static final String ID = makeID(ColdSnap.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 

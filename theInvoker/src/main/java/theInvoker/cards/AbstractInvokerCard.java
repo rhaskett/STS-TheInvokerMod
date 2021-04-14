@@ -1,8 +1,10 @@
 package theInvoker.cards;
+
 import basemod.abstracts.CustomCard;
+
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
-public abstract class AbstractDefaultCard extends CustomCard {
+public abstract class AbstractInvokerCard extends CustomCard {
 
     // Custom Abstract Cards can be a bit confusing. While this is a simple base for simply adding a second magic number,
     // if you're new to modding I suggest you skip this file until you know what unique things that aren't provided
@@ -17,7 +19,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
 //    public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.
 //    public boolean isDefaultSecondMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
 
-    public AbstractDefaultCard(final String id,
+    public AbstractInvokerCard(final String id,
                                final String img,
                                final int cost,
                                final CardType type,
@@ -37,6 +39,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
 //        isDefaultSecondMagicNumberModified = false;
 
     }
+
 
 
 //    public void displayUpgrades() { // Display the upgrade - when you click a card to upgrade it

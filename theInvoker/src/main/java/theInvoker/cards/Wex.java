@@ -12,11 +12,9 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import theInvoker.characters.TheInvoker;
 import theInvoker.orbs.WexOrb;
 
-import java.util.Iterator;
-
 import static theInvoker.TheInvoker.makeCardPath;
 
-public class Wex extends AbstractDefaultCard {
+public class Wex extends AbstractInvokerCard {
     public static final String ID = theInvoker.TheInvoker.makeID(Wex.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -43,13 +41,9 @@ public class Wex extends AbstractDefaultCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ChannelAction(new WexOrb()));
 
-        Iterator<AbstractMonster> var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-
-        AbstractMonster mo;
-        while(var3.hasNext()) {
-            mo = var3.next();
-            this.addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.magicNumber), -this.magicNumber,
-                    true, AbstractGameAction.AttackEffect.NONE));
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            this.addToBot(new ApplyPowerAction(monster, p, new StrengthPower(monster, -this.magicNumber),
+                    -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
 
         // TODO restore artifacts?

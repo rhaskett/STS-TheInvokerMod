@@ -12,7 +12,7 @@ import theInvoker.orbs.QuasOrb;
 
 import static theInvoker.TheInvoker.makeCardPath;
 
-public class Quas extends AbstractDefaultCard {
+public class Quas extends AbstractInvokerCard {
     public static final String ID = theInvoker.TheInvoker.makeID(Quas.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 

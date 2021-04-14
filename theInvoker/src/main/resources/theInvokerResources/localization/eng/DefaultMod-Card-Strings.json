@@ -7,6 +7,10 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
+  "theInvoker:Invoke": {
+    "NAME": "Invoke",
+    "DESCRIPTION": "Gain !B! Block. NL theinvoker:Invoke"
+  },
 
   "theInvoker:Quas": {
     "NAME": "Quas",
@@ -28,6 +32,14 @@
   "theInvoker:ColdSnap": {
     "NAME": "Cold Snap",
     "DESCRIPTION": "Gain !B! Block."
+  },
+  "theInvoker:EMP": {
+    "NAME": "E.M.P.",
+    "DESCRIPTION": "Apply !M! Vulnerable and Weak to all enemies."
+  },
+  "theInvoker:SunStrike": {
+    "NAME": "Sun Strike",
+    "DESCRIPTION": "Deal !D! damage."
   },
 
 

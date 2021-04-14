@@ -19,11 +19,12 @@ import theInvoker.TheInvoker;
 
 import static theInvoker.TheInvoker.makeOrbPath;
 
-public class ExortOrb extends CustomOrb {
+public class ExortOrb extends InvokerOrb {
 
     public static final String ORB_ID = TheInvoker.makeID(ExortOrb.class.getSimpleName());
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESCRIPTIONS = orbString.DESCRIPTION;
+    public static final String ORB_KEY = "E";
 
     private static final int PASSIVE_AMOUNT = 0;
     private static final int EVOKE_AMOUNT = 1;
@@ -50,12 +51,6 @@ public class ExortOrb extends CustomOrb {
     public void updateDescription() {
         applyFocus();
         description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
-    }
-
-    @Override
-    public void applyFocus() {
-        passiveAmount = basePassiveAmount;
-        evokeAmount = baseEvokeAmount;
     }
 
     @Override
