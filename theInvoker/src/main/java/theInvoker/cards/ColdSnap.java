@@ -18,10 +18,9 @@ public class ColdSnap extends AbstractInvokerCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
-    private static final int BLOCK = 10;
-    private static final int UPGRADE_BLOCK = 4;
-
+    private static final int COST = 2;
+    private static final int BLOCK = 4;
+    private static final int UPGRADE_BLOCK = 1;
 
     public ColdSnap() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -33,6 +32,8 @@ public class ColdSnap extends AbstractInvokerCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 
 
@@ -42,7 +43,7 @@ public class ColdSnap extends AbstractInvokerCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_BLOCK);
-            initializeDescription();  // TODO needed?
+            initializeDescription();
         }
     }
 }

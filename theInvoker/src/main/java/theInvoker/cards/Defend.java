@@ -33,7 +33,7 @@ public class Defend extends AbstractInvokerCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        this.addToBot(new GainBlockAction(p, p, block));
     }
 
 

@@ -1,4 +1,8 @@
 {
+        "theInvoker:VenomPower": {
+                "NAME": "Venom",
+                "DESCRIPTIONS": ["Whenever attacked apply #b", " Poison"]
+        },
 "theInvoker:CommonPower": {
         "NAME": "Placeholder Power",
         "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]

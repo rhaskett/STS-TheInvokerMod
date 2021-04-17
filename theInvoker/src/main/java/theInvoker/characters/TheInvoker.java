@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.cards.*;
+import theInvoker.cards.items.SharedTango;
 import theInvoker.relics.DefaultClickableRelic;
 import theInvoker.relics.PlaceholderRelic;
 import theInvoker.relics.PlaceholderRelic2;
@@ -160,9 +161,8 @@ public class TheInvoker extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
 
-        retVal.add(Exort.ID);
+        retVal.add(SharedTango.ID);
         retVal.add(Exort.ID);
         retVal.add(Invoke.ID);
         retVal.add(Invoke.ID);

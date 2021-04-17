@@ -34,9 +34,13 @@ public class Invoke extends AbstractInvokerCard {
     public static final Map<String, Class<? extends AbstractInvokerCard>> INVOKE_MAP = new HashMap<>();
 
     static {
-        INVOKE_MAP.put("WWW", EMP.class);
-        INVOKE_MAP.put("QQQ", ColdSnap.class);
         INVOKE_MAP.put("EEE", SunStrike.class);
+//        INVOKE_MAP.put("EEQ", ForgeSpirit.class);
+        INVOKE_MAP.put("EQQ", IceWall.class);
+        INVOKE_MAP.put("QQQ", ColdSnap.class);
+        INVOKE_MAP.put("WWW", EMP.class);
+
+
 
     }
 
@@ -72,19 +76,19 @@ public class Invoke extends AbstractInvokerCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        String key = invokerOrbKey(AbstractDungeon.player.orbs);
-
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
 
-        if(key.length() == 3) {
+        String key = invokerOrbKey(AbstractDungeon.player.orbs);
+        if(key != null && key.length() == 3) {
             Class<? extends AbstractInvokerCard> card = INVOKE_MAP.get(key);
             try {
-                this.addToBot(new MakeTempCardInHandAction(card.newInstance(), 1));
+                this.addToBot(new MakeTempCardInHandAction(card.newInstance()));
             } catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
             }
 
         }
+        // TODO else talk?
 
     }
 

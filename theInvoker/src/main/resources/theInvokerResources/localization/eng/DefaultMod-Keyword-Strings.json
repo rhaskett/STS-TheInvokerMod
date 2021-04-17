@@ -1,10 +1,11 @@
 [
   {
-    "NAMES": [
-      "Invoke",
-      "invoke"
-    ],
+    "NAMES": ["Invoke", "invoke"],
     "DESCRIPTION": "If you have three channelled Invoker orbs, NL generate a new spell based on which orbs you have channelled."
+  },
+  {
+    "NAMES": ["consume", "consumed"],
+    "DESCRIPTION": "Consumed cards are permanently removed from your deck."
   },
 
   {

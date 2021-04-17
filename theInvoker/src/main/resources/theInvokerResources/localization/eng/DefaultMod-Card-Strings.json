@@ -9,7 +9,7 @@
   },
   "theInvoker:Invoke": {
     "NAME": "Invoke",
-    "DESCRIPTION": "Gain !B! Block. NL theinvoker:Invoke"
+    "DESCRIPTION": "theinvoker:Invoke NL Gain !B! Block."
   },
 
   "theInvoker:Quas": {
@@ -25,21 +25,49 @@
     "DESCRIPTION": "Channel 1 Exort Orb. NL Gain !M! Strength."
   },
 
+  "theInvoker:SunStrike": {
+    "NAME": "Sun Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "theInvoker:IceWall": {
+    "NAME": "Ice Wall",
+    "DESCRIPTION": "Apply Slow to all enemies."
+  },
   "theInvoker:Cataclysm": {
     "NAME": "Cataclysm",
     "DESCRIPTION": "Deal !D! damage to ALL enemies."
   },
   "theInvoker:ColdSnap": {
     "NAME": "Cold Snap",
-    "DESCRIPTION": "Gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block 3 times."
   },
   "theInvoker:EMP": {
     "NAME": "E.M.P.",
     "DESCRIPTION": "Apply !M! Vulnerable and Weak to all enemies."
   },
-  "theInvoker:SunStrike": {
-    "NAME": "Sun Strike",
-    "DESCRIPTION": "Deal !D! damage."
+
+  "Gatherer:Dagon": {
+    "NAME": "Dagon",
+    "DESCRIPTION": "Deal !D! damage.",
+    "EXTENDED_DESCRIPTION": [
+      "NL Can be upgraded 4 more times.",
+      "NL Can be upgraded 3 more times.",
+      "NL Can be upgraded 2 more times.",
+      "NL Can be upgraded 1 more times.",
+      "NL Fully upgraded."
+    ]
+  },
+  "Gatherer:HandOfMidas": {
+    "NAME": "Hand of Midas",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal gain !M! gold."
+  },
+  "Gatherer:OrbOfVenom": {
+    "NAME": "Orb of Venom",
+    "DESCRIPTION": "Whenever an attack deals unblocked damage, apply !M! Poison."
+  },
+  "theInvoker:SharedTango": {
+    "NAME": "Shared Tango",
+    "DESCRIPTION": "Apply !M! Regeneration. theinvoker:Consume"
   },
 
 
