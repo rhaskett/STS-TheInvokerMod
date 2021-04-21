@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.SlowPower;
 import theInvoker.characters.TheInvoker;
 
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
+import static theInvoker.InvokerMod.makeCardPath;
+import static theInvoker.InvokerMod.makeID;
 
 public class IceWall extends AbstractInvokerCard {
     public static final String ID = makeID(IceWall.class.getSimpleName());

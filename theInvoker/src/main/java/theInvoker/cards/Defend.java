@@ -2,16 +2,13 @@ package theInvoker.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
 
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
-
 public class Defend extends AbstractInvokerCard {
-    public static final String ID = makeID(Defend.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String ID = InvokerMod.makeID(Defend.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String IMG = InvokerMod.makeCardPath("Skill.png");
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;

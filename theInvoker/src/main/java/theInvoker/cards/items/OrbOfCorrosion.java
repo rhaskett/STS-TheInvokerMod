@@ -1,45 +1,43 @@
 package theInvoker.cards.items;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theInvoker.cards.AbstractInvokerCard;
+import theInvoker.actions.FastAddTemporaryHPAction;
 import theInvoker.characters.TheInvoker;
 import theInvoker.powers.VenomPower;
 
 import static theInvoker.InvokerMod.makeCardPath;
 import static theInvoker.InvokerMod.makeID;
 
-public class OrbOfVenom extends AbstractCombinesCard {
-    public static final String ID = makeID(OrbOfVenom.class.getSimpleName());
+@AutoAdd.Ignore
+public class OrbOfCorrosion extends AbstractCraftableCard {
+    public static final String ID = makeID(OrbOfCorrosion.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String COMPONENT1 = OrbOfVenom.ID;
+    public static final String COMPONENT2 = FluffyHat.ID;
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    public static final int COST = 2;
-    public static final int MAGIC = 1;
+    private static final int COST = OrbOfVenom.COST;
+    private static final int MAGIC = OrbOfVenom.MAGIC;
+    private static final int TEMP_HP = FluffyHat.MAGIC;
 
-    public OrbOfVenom() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+    public OrbOfCorrosion() {
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET, COMPONENT1, COMPONENT2);
         this.magicNumber = MAGIC;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ApplyPowerAction(p, p, new VenomPower(p, this.magicNumber), this.magicNumber));
-    }
-
-    @Override
-    public String GetRawDescription() {
-        return DESCRIPTION + combinesExtendedDescription();
+        this.addToBot(new FastAddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, TEMP_HP));
     }
 
     @Override

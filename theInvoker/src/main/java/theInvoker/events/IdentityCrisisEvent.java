@@ -13,20 +13,18 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import theInvoker.TheInvoker;
-
-import static theInvoker.TheInvoker.makeEventPath;
+import theInvoker.InvokerMod;
 
 public class IdentityCrisisEvent extends AbstractImageEvent {
 
 
-    public static final String ID = TheInvoker.makeID("IdentityCrisisEvent");
+    public static final String ID = InvokerMod.makeID("IdentityCrisisEvent");
     private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
 
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("IdentityCrisisEvent.png");
+    public static final String IMG = InvokerMod.makeEventPath("IdentityCrisisEvent.png");
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 

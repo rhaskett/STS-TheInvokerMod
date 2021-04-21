@@ -5,14 +5,12 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
 
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
-
 public class Cataclysm extends AbstractInvokerCard {
-    public static final String ID = makeID(Cataclysm.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String ID = InvokerMod.makeID(Cataclysm.class.getSimpleName());
+    public static final String IMG = InvokerMod.makeCardPath("Attack.png");
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;

@@ -15,13 +15,11 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
-import theInvoker.TheInvoker;
-
-import static theInvoker.TheInvoker.makeOrbPath;
+import theInvoker.InvokerMod;
 
 public class ExortOrb extends InvokerOrb {
 
-    public static final String ORB_ID = TheInvoker.makeID(ExortOrb.class.getSimpleName());
+    public static final String ORB_ID = InvokerMod.makeID(ExortOrb.class.getSimpleName());
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESCRIPTIONS = orbString.DESCRIPTION;
     public static final String ORB_KEY = "E";
@@ -38,7 +36,7 @@ public class ExortOrb extends InvokerOrb {
 
     public ExortOrb() {
         super(ORB_ID, orbString.NAME, PASSIVE_AMOUNT, EVOKE_AMOUNT, DESCRIPTIONS[0], DESCRIPTIONS[1],
-                makeOrbPath("default_orb.png"));
+                InvokerMod.makeOrbPath("default_orb.png"));
 
         updateDescription();
 

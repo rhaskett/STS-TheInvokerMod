@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theInvoker.cards.AbstractInvokerCard;
 import theInvoker.characters.TheInvoker;
 
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
+import static theInvoker.InvokerMod.makeCardPath;
+import static theInvoker.InvokerMod.makeID;
 
 public class Dagon extends AbstractInvokerCard {
     public static final String ID = makeID(Dagon.class.getSimpleName());
@@ -27,8 +27,8 @@ public class Dagon extends AbstractInvokerCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 20;
-    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int DAMAGE = 10;
+    private static final int UPGRADE_PLUS_DMG = 4;
     private static final int MAX_UPGRADES = 5;
 
     public Dagon() {
@@ -57,7 +57,7 @@ public class Dagon extends AbstractInvokerCard {
             upgradeDamage(UPGRADE_PLUS_DMG);
             ++this.timesUpgraded;
             this.upgraded = true;
-            this.name = NAME + this.timesUpgraded;
+            this.name = NAME + " " + (this.timesUpgraded + 1);
             this.initializeTitle();
             this.rawDescription = GetRawDescription();
             this.initializeDescription();

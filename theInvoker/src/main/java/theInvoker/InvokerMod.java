@@ -14,7 +14,10 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -22,6 +25,9 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.cards.AbstractInvokerCard;
+import theInvoker.cards.items.AbstractCraftableCard;
+import theInvoker.cards.items.OrbOfCorrosion;
+import theInvoker.cards.items.OrchidMalevolence;
 import theInvoker.potions.PlaceholderPotion;
 import theInvoker.relics.BottledPlaceholderRelic;
 import theInvoker.relics.DefaultClickableRelic;
@@ -34,6 +40,8 @@ import theInvoker.variables.DefaultCustomVariable;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /*
@@ -50,7 +58,7 @@ import java.util.Properties;
  */
 
 @SpireInitializer
-public class TheInvoker implements
+public class InvokerMod implements
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
@@ -59,20 +67,22 @@ public class TheInvoker implements
         PostInitializeSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
-    public static final Logger logger = LogManager.getLogger(TheInvoker.class.getName());
+    public static final Logger logger = LogManager.getLogger(InvokerMod.class.getName());
     private static String modID;
 
-    // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties theDefaultDefaultSettings = new Properties();
+    // Mod-settings settings. This is if you want an on/off savable button TODO remove?
+    public static Properties invokerModDefaultSettings = new Properties();
     public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "The Invoker";
-    private static final String AUTHOR = "Surrational"; // And pretty soon - You!
+    private static final String AUTHOR = "Surrational";
     // TODO Add Description
     private static final String DESCRIPTION = "";
-    
+
+    public static final List<AbstractCraftableCard> craftableCards = new ArrayList<>();
+
     // =============== INPUT TEXTURE LOCATION =================
     
     // Colors (RGB)
@@ -136,6 +146,10 @@ public class TheInvoker implements
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
     }
+
+    public static String makeUIPath(String resourcePath) {
+        return getModID() + "Resources/images/ui/" + resourcePath;
+    }
     
     // =============== /MAKE IMAGE PATHS/ =================
     
@@ -144,7 +158,7 @@ public class TheInvoker implements
     
     // =============== SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE =================
     
-    public TheInvoker() {
+    public InvokerMod() {
         logger.info("Subscribe to BaseMod hooks");
         
         BaseMod.subscribe(this);
@@ -166,9 +180,9 @@ public class TheInvoker implements
         logger.info("Adding mod settings");
         // This loads the mod settings.
         // The actual mod Button is added below in receivePostInitialize()
-        theDefaultDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
+        invokerModDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
         try {
-            SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings); // ...right here
+            SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", invokerModDefaultSettings); // ...right here
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
             enablePlaceholder = config.getBool(ENABLE_PLACEHOLDER_SETTINGS);
@@ -186,7 +200,7 @@ public class TheInvoker implements
     public static void setModID(String ID) { // DON'T EDIT
         Gson coolG = new Gson(); // EY DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i hate u Gdx.files
-        InputStream in = TheInvoker.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THIS ETHER
+        InputStream in = InvokerMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THIS ETHER
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // OR THIS, DON'T EDIT IT
         logger.info("You are attempting to set your mod ID as: " + ID); // NO WHY
         if (ID.equals(EXCEPTION_STRINGS.DEFAULTID)) { // DO *NOT* CHANGE THIS ESPECIALLY, TO EDIT YOUR MOD ID, SCROLL UP JUST A LITTLE, IT'S JUST ABOVE
@@ -206,9 +220,9 @@ public class TheInvoker implements
     private static void pathCheck() { // ALSO NO
         Gson coolG = new Gson(); // NOPE DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i still hate u btw Gdx.files
-        InputStream in = TheInvoker.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THISSSSS
+        InputStream in = InvokerMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THISSSSS
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // NAH, NO EDIT
-        String packageName = TheInvoker.class.getPackage().getName(); // STILL NO EDIT ZONE
+        String packageName = InvokerMod.class.getPackage().getName(); // STILL NO EDIT ZONE
         FileHandle resourcePathExists = Gdx.files.internal(getModID() + "Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
         if (!modID.equals(EXCEPTION_STRINGS.DEVID)) { // LEAVE THIS EDIT-LESS
             if (!packageName.equals(getModID())) { // NOT HERE ETHER
@@ -224,12 +238,34 @@ public class TheInvoker implements
     
     
     public static void initialize() {
-        logger.info("========================= Initializing Default Mod. Hi. =========================");
-        TheInvoker defaultmod = new TheInvoker();
-        logger.info("========================= /Default Mod Initialized. Hello World./ =========================");
+        logger.info("========================= Initializing Invoker Mod. =========================");
+        new InvokerMod();
+        logger.info("========================= /Invoker Mod Initialized. / =========================");
     }
     
-    // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
+    // =============== CARD GROUPS ==========================
+
+    public static ArrayList<AbstractCraftableCard> getAllCraftableCards() {
+        ArrayList<AbstractCraftableCard> retVal = new ArrayList<>();
+        retVal.add(new OrbOfCorrosion());
+        retVal.add(new OrchidMalevolence());
+
+        return retVal;
+    }
+
+
+    public static CardGroup getCurrentlyCraftableCards() {
+        CardGroup retVal = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        CardGroup currentDeck = AbstractDungeon.player.masterDeck;
+
+        for (AbstractCraftableCard c : getAllCraftableCards())
+            if (currentDeck.findCardById(c.firstComponentID) != null &&
+                    currentDeck.findCardById(c.secondComponentID) != null)
+                retVal.addToBottom(c);
+
+
+        return retVal;
+    }
     
     
     // =============== LOAD THE CHARACTER =================
@@ -237,7 +273,8 @@ public class TheInvoker implements
     @Override
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + theInvoker.characters.TheInvoker.Enums.THE_INVOKER.toString());
-        
+
+        // TODO Capitalize the?
         BaseMod.addCharacter(new theInvoker.characters.TheInvoker("the Invoker", theInvoker.characters.TheInvoker.Enums.THE_INVOKER),
                 THE_INVOKER_BUTTON, THE_INVOKER_PORTRAIT, theInvoker.characters.TheInvoker.Enums.THE_INVOKER);
         
@@ -259,7 +296,7 @@ public class TheInvoker implements
         
         // Create the Mod Menu
         ModPanel settingsPanel = new ModPanel();
-        
+
         // Create the on/off button:
         ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("This is the text which goes next to the checkbox.",
                 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
@@ -267,19 +304,27 @@ public class TheInvoker implements
                 settingsPanel, // The mod panel in which this button will be in
                 (label) -> {}, // thing??????? idk
                 (button) -> { // The actual button:
-            
+
             enablePlaceholder = button.enabled; // The boolean true/false will be whether the button is enabled or not
             try {
-                // And based on that boolean, set the settings and save them
-                SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings);
+                // And based on that boolean, set the settings and save them  TODO change
+                SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", invokerModDefaultSettings);
                 config.setBool(ENABLE_PLACEHOLDER_SETTINGS, enablePlaceholder);
                 config.save();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
-        
+
         settingsPanel.addUIElement(enableNormalsButton); // Add the button to the settings panel. Button is a go.
+
+        //        ModLabeledToggleButton unlockEverythingBtn = new ModLabeledToggleButton(configStrings.TEXT[3],
+//                350.0f, 450.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+//                unlockEverything, settingsPanel, (label) -> {}, (button) -> {
+//            unlockEverything = button.enabled;
+//            unlockEverything();
+//            saveData();
+//        });
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
@@ -383,10 +428,7 @@ public class TheInvoker implements
         // The ID for this function isn't actually your modid as used for prefixes/by the getModID() method.
         // It's the mod id you give MTS in ModTheSpire.json - by default your artifact ID in your pom.xml
 
-        new AutoAdd("TheInvoker") // ${project.artifactId}
-            .packageFilter(AbstractInvokerCard.class) // filters to any class in the same package as AbstractInvokerCard, nested packages included
-            .setDefaultSeen(true)
-            .cards();
+        new AutoAdd("TheInvoker").packageFilter(AbstractInvokerCard.class).setDefaultSeen(true).cards();
 
         // .setDefaultSeen(true) unlocks the cards
         // This is so that they are all "seen" in the library,
@@ -432,8 +474,12 @@ public class TheInvoker implements
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
                 getModID() + "Resources/localization/eng/DefaultMod-Orb-Strings.json");
+
+        // UIStrings
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                getModID() + "Resources/localization/eng/DefaultMod-UI-Strings.json");
         
-        logger.info("Done edittting strings");
+        logger.info("Done editing strings");
     }
     
     // ================ /LOAD THE TEXT/ ===================

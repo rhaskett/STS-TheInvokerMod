@@ -6,15 +6,13 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
-
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
 
 @AutoAdd.Ignore // Remove this line when you make a template. Refer to https://github.com/daviscook477/BaseMod/wiki/AutoAdd if you want to know what it does.
 public class CardTemplate extends AbstractInvokerCard {
-    public static final String ID = makeID(CardTemplate.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String ID = InvokerMod.makeID(CardTemplate.class.getSimpleName());
+    public static final String IMG = InvokerMod.makeCardPath("Attack.png");
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;

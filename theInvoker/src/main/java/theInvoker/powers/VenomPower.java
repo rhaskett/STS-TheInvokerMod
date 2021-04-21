@@ -9,13 +9,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
-import theInvoker.TheInvoker;
+import theInvoker.InvokerMod;
 import theInvoker.util.TextureLoader;
 
-import static theInvoker.TheInvoker.makePowerPath;
+import static theInvoker.InvokerMod.makePowerPath;
 
 public class VenomPower extends AbstractPower {
-    public static final String POWER_ID = TheInvoker.makeID("VenomPower");
+    public static final String POWER_ID = InvokerMod.makeID("VenomPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;

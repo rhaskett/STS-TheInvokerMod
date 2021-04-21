@@ -4,14 +4,12 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
 
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
-
 public class Attack extends AbstractInvokerCard {
-    public static final String ID = makeID(Attack.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String ID = InvokerMod.makeID(Attack.class.getSimpleName());
+    public static final String IMG = InvokerMod.makeCardPath("Attack.png");
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;

@@ -9,16 +9,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
 import theInvoker.orbs.WexOrb;
 
-import static theInvoker.TheInvoker.makeCardPath;
-
 public class Wex extends AbstractInvokerCard {
-    public static final String ID = theInvoker.TheInvoker.makeID(Wex.class.getSimpleName());
+    public static final String ID = InvokerMod.makeID(Wex.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    public static final String IMG = makeCardPath("Quas.png");
+    public static final String IMG = InvokerMod.makeCardPath("Quas.png");
 
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;

@@ -1,40 +1,38 @@
 package theInvoker.cards.items;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theInvoker.cards.AbstractInvokerCard;
+import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
-import theInvoker.powers.VenomPower;
 
-import static theInvoker.InvokerMod.makeCardPath;
-import static theInvoker.InvokerMod.makeID;
-
-public class OrbOfVenom extends AbstractCombinesCard {
-    public static final String ID = makeID(OrbOfVenom.class.getSimpleName());
-    public static final String IMG = makeCardPath("Power.png");
+public class StaffOfWizardry extends AbstractCombinesCard {
+    public static final String ID = InvokerMod.makeID(StaffOfWizardry.class.getSimpleName());
+    public static final String IMG = InvokerMod.makeCardPath("Attack.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    public static final int COST = 2;
-    public static final int MAGIC = 1;
+    public static final int COST = 1;
+    public static final int DAMAGE = 8;
 
-    public OrbOfVenom() {
+    public StaffOfWizardry() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = MAGIC;
+        baseDamage = DAMAGE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new VenomPower(p, this.magicNumber), this.magicNumber));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
     @Override

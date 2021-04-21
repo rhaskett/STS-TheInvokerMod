@@ -3,11 +3,8 @@ package theInvoker.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import theInvoker.TheInvoker;
+import theInvoker.InvokerMod;
 import theInvoker.util.TextureLoader;
-
-import static theInvoker.TheInvoker.makeRelicOutlinePath;
-import static theInvoker.TheInvoker.makeRelicPath;
 
 public class PlaceholderRelic extends CustomRelic {
 
@@ -18,10 +15,10 @@ public class PlaceholderRelic extends CustomRelic {
      */
 
     // ID, images, text.
-    public static final String ID = TheInvoker.makeID("PlaceholderRelic");
+    public static final String ID = InvokerMod.makeID("PlaceholderRelic");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(InvokerMod.makeRelicPath("placeholder_relic.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(InvokerMod.makeRelicOutlinePath("placeholder_relic.png"));
 
     public PlaceholderRelic() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);

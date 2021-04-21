@@ -21,15 +21,18 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import theInvoker.cards.*;
-import theInvoker.cards.items.SharedTango;
+import theInvoker.InvokerMod;
+import theInvoker.cards.Attack;
+import theInvoker.cards.Defend;
+import theInvoker.cards.Exort;
+import theInvoker.cards.Invoke;
+import theInvoker.cards.items.*;
 import theInvoker.relics.DefaultClickableRelic;
 import theInvoker.relics.PlaceholderRelic;
 import theInvoker.relics.PlaceholderRelic2;
 
 import java.util.ArrayList;
 
-import static theInvoker.TheInvoker.*;
 import static theInvoker.characters.TheInvoker.Enums.COLOR_GRAY;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
@@ -37,7 +40,7 @@ import static theInvoker.characters.TheInvoker.Enums.COLOR_GRAY;
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in DefaultMod-character-Strings.json in the resources
 
 public class TheInvoker extends CustomPlayer {
-    public static final Logger logger = LogManager.getLogger(theInvoker.TheInvoker.class.getName());
+    public static final Logger logger = LogManager.getLogger(TheInvoker.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
     // These are enums for your Characters color (both general color and for the card library) as well as
@@ -72,7 +75,7 @@ public class TheInvoker extends CustomPlayer {
 
     // =============== STRINGS =================
 
-    private static final String ID = makeID("DefaultCharacter"); // TODO Change?
+    private static final String ID = InvokerMod.makeID("DefaultCharacter"); // TODO Change?
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
@@ -97,6 +100,8 @@ public class TheInvoker extends CustomPlayer {
 
     // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
+
+
     // =============== CHARACTER CLASS START =================
 
     public TheInvoker(String name, PlayerClass setClass) {
@@ -110,9 +115,9 @@ public class TheInvoker extends CustomPlayer {
 
         initializeClass(null, // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                THE_INVOKER_SHOULDER_2, // campfire pose
-                THE_INVOKER_SHOULDER_1, // another campfire pose
-                THE_INVOKER_CORPSE, // dead corpse
+                InvokerMod.THE_INVOKER_SHOULDER_2, // campfire pose
+                InvokerMod.THE_INVOKER_SHOULDER_1, // another campfire pose
+                InvokerMod.THE_INVOKER_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
@@ -120,7 +125,7 @@ public class TheInvoker extends CustomPlayer {
 
         // =============== ANIMATIONS =================  
 
-        loadAnimation(THE_INVOKER_SKELETON_ATLAS, THE_INVOKER_SKELETON_JSON, 1.0f);
+        loadAnimation(InvokerMod.THE_INVOKER_SKELETON_ATLAS, InvokerMod.THE_INVOKER_SKELETON_JSON, 1.0f);
         AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
         e.setTime(e.getEndTime() * MathUtils.random());
 
@@ -160,19 +165,19 @@ public class TheInvoker extends CustomPlayer {
 
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-
+        retVal.add(Invoke.ID);
+        retVal.add(Invoke.ID);
         retVal.add(SharedTango.ID);
+
         retVal.add(Exort.ID);
-        retVal.add(Invoke.ID);
-        retVal.add(Invoke.ID);
+//        retVal.add(OrbOfVenom.ID);
+//        retVal.add(FluffyHat.ID);
+//        retVal.add(HandOfMidas.ID);
 
+        retVal.add(StaffOfWizardry.ID);
+        retVal.add(StaffOfWizardry.ID);
+//        retVal.add(Quas.ID);
 
-//        retVal.add(ColdSnap.ID);
-//        retVal.add(Cataclysm.ID);
-//        retVal.add(Quas.ID);
-//        retVal.add(Quas.ID);
-//        retVal.add(Quas.ID);
 
         return retVal;
     }
@@ -224,7 +229,7 @@ public class TheInvoker extends CustomPlayer {
     // Should return a color object to be used to color the trail of moving cards
     @Override
     public Color getCardTrailColor() {
-        return theInvoker.TheInvoker.DEFAULT_GRAY;
+        return InvokerMod.DEFAULT_GRAY;
     }
 
     // Should return a BitmapFont object that you can use to customize how your
@@ -261,14 +266,14 @@ public class TheInvoker extends CustomPlayer {
     // Should return a Color object to be used to color the miniature card images in run history.
     @Override
     public Color getCardRenderColor() {
-        return theInvoker.TheInvoker.DEFAULT_GRAY;
+        return InvokerMod.DEFAULT_GRAY;
     }
 
     // Should return a Color object to be used as screen tint effect when your
     // character attacks the heart.
     @Override
     public Color getSlashAttackColor() {
-        return theInvoker.TheInvoker.DEFAULT_GRAY;
+        return InvokerMod.DEFAULT_GRAY;
     }
 
     // Should return an AttackEffect array of any size greater than 0. These effects

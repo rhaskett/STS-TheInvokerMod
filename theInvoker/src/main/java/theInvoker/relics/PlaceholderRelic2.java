@@ -6,11 +6,8 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import theInvoker.TheInvoker;
+import theInvoker.InvokerMod;
 import theInvoker.util.TextureLoader;
-
-import static theInvoker.TheInvoker.makeRelicOutlinePath;
-import static theInvoker.TheInvoker.makeRelicPath;
 
 public class PlaceholderRelic2 extends CustomRelic {
     /*
@@ -20,10 +17,10 @@ public class PlaceholderRelic2 extends CustomRelic {
      */
 
     // ID, images, text.
-    public static final String ID = TheInvoker.makeID("PlaceholderRelic2");
+    public static final String ID = InvokerMod.makeID("PlaceholderRelic2");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic2.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic2.png"));
+    private static final Texture IMG = TextureLoader.getTexture(InvokerMod.makeRelicPath("placeholder_relic2.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(InvokerMod.makeRelicOutlinePath("placeholder_relic2.png"));
 
     public PlaceholderRelic2() {
         super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);

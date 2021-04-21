@@ -1,6 +1,5 @@
 package theInvoker.orbs;
 
-import basemod.abstracts.CustomOrb;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -9,21 +8,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
-import theInvoker.TheInvoker;
-
-import static theInvoker.TheInvoker.makeOrbPath;
+import theInvoker.InvokerMod;
 
 public class QuasOrb extends InvokerOrb {
 
-    public static final String ORB_ID = TheInvoker.makeID(QuasOrb.class.getSimpleName());
+    public static final String ORB_ID = InvokerMod.makeID(QuasOrb.class.getSimpleName());
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESCRIPTIONS = orbString.DESCRIPTION;
     public static final String ORB_KEY = "Q";
@@ -40,7 +34,7 @@ public class QuasOrb extends InvokerOrb {
 
     public QuasOrb() {
         super(ORB_ID, orbString.NAME, PASSIVE_AMOUNT, EVOKE_AMOUNT, DESCRIPTIONS[0], DESCRIPTIONS[1],
-                makeOrbPath("quas_orb.png"));
+                InvokerMod.makeOrbPath("quas_orb.png"));
 
         updateDescription();
 

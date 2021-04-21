@@ -1,0 +1,12 @@
+{
+  "theInvoker:CombineBonfireOption": {
+    "TEXT": [
+      "Craft Card (",
+      " Gold)",
+      "Choose your recipe to make.",
+      "Requires a pair of cards that can combine and at least #b",
+      " Gold.",
+      "Select a Card to Craft."
+    ]
+  }
+}

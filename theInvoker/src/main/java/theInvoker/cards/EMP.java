@@ -6,14 +6,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
 
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
-
 public class EMP extends AbstractInvokerCard {
-    public static final String ID = makeID(EMP.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String ID = InvokerMod.makeID(EMP.class.getSimpleName());
+    public static final String IMG = InvokerMod.makeCardPath("Skill.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;

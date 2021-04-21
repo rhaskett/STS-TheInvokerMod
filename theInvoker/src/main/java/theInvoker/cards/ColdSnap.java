@@ -4,14 +4,12 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
 
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
-
 public class ColdSnap extends AbstractInvokerCard {
-    public static final String ID = makeID(ColdSnap.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String ID = InvokerMod.makeID(ColdSnap.class.getSimpleName());
+    public static final String IMG = InvokerMod.makeCardPath("Skill.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;

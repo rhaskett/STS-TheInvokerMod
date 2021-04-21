@@ -3,19 +3,12 @@ package theInvoker.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
-import theInvoker.TheInvoker;
+import theInvoker.InvokerMod;
 import theInvoker.util.TextureLoader;
-
-import static theInvoker.TheInvoker.makeRelicOutlinePath;
-import static theInvoker.TheInvoker.makeRelicPath;
 
 public class DefaultClickableRelic extends CustomRelic implements ClickableRelic { // You must implement things you want to use from StSlib
     /*
@@ -26,10 +19,10 @@ public class DefaultClickableRelic extends CustomRelic implements ClickableRelic
      */
 
     // ID, images, text.
-    public static final String ID = TheInvoker.makeID("DefaultClickableRelic");
+    public static final String ID = InvokerMod.makeID("DefaultClickableRelic");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(InvokerMod.makeRelicPath("default_clickable_relic.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(InvokerMod.makeRelicOutlinePath("default_clickable_relic.png"));
 
     private boolean usedThisTurn = false; // You can also have a relic be only usable once per combat. Check out Hubris for more examples, including other StSlib things.
     private boolean isPlayerTurn = false; // We should make sure the relic is only activateable during our turn, not the enemies'.

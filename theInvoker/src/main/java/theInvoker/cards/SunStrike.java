@@ -6,8 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theInvoker.characters.TheInvoker;
 
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
+import static theInvoker.InvokerMod.makeCardPath;
+import static theInvoker.InvokerMod.makeID;
 
 public class SunStrike extends AbstractInvokerCard {
     public static final String ID = makeID(SunStrike.class.getSimpleName());

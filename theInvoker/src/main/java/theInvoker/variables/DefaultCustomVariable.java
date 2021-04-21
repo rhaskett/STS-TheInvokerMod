@@ -3,8 +3,7 @@ package theInvoker.variables;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-
-import static theInvoker.TheInvoker.makeID;
+import theInvoker.InvokerMod;
 
 public class DefaultCustomVariable extends DynamicVariable
 {   // Custom Dynamic Variables are what you do if you need your card text to display a cool, changing number that the base game doesn't provide.
@@ -15,7 +14,7 @@ public class DefaultCustomVariable extends DynamicVariable
     @Override
     public String key()
     {
-        return makeID("ENERGY_DAMAGE");
+        return InvokerMod.makeID("ENERGY_DAMAGE");
     }
 
     // Checks whether the current value is different than the base one. 

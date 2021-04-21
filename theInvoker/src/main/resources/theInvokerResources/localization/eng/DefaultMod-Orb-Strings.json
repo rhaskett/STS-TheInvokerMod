@@ -3,21 +3,21 @@
   "theInvoker:QuasOrb": {
     "NAME": "Quas Orb",
     "DESCRIPTION": [
-      "Invokable",
+      "Invokes more defensive oriented cards.",
       " NL #yEvoke: Lose #b Repair."
     ]
   },
   "theInvoker:WexOrb": {
     "NAME": "Wex Orb",
     "DESCRIPTION": [
-      "Invokable",
+      "Invokes buff/debuff oriented cards.",
       " NL #yEvoke: Enemies gain #b Strength."
     ]
   },
   "theInvoker:ExortOrb": {
     "NAME": "Exort Orb",
     "DESCRIPTION": [
-      "Invokable",
+      "Invokes more attack oriented cards.",
       " NL #yEvoke: Lose #b Strength."
     ]
   }

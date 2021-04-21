@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
 import theInvoker.orbs.ExortOrb;
 import theInvoker.orbs.QuasOrb;
@@ -16,12 +17,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import static theInvoker.TheInvoker.makeCardPath;
-import static theInvoker.TheInvoker.makeID;
-
 public class Invoke extends AbstractInvokerCard {
-    public static final String ID = makeID(Invoke.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String ID = InvokerMod.makeID(Invoke.class.getSimpleName());
+    public static final String IMG = InvokerMod.makeCardPath("Skill.png");
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -30,7 +28,7 @@ public class Invoke extends AbstractInvokerCard {
 
     private static final int COST = 1;
     private static final int UPGRADE_COST = 0;
-    private static final int BLOCK = 3;
+    private static final int BLOCK = 4;
     public static final Map<String, Class<? extends AbstractInvokerCard>> INVOKE_MAP = new HashMap<>();
 
     static {

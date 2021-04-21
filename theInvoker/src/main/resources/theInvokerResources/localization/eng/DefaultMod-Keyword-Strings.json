@@ -1,11 +1,15 @@
 [
   {
-    "NAMES": ["Invoke", "invoke"],
-    "DESCRIPTION": "If you have three channelled Invoker orbs, NL generate a new spell based on which orbs you have channelled."
+    "NAMES": ["Invoke", "invoke", "Invokable"],
+    "DESCRIPTION": "If you have three channelled invokable orbs, NL gain a new spell based on which orbs you have channelled."
   },
   {
-    "NAMES": ["consume", "consumed"],
+    "NAMES": ["Consume", "Consumed", "consume", "consumed"],
     "DESCRIPTION": "Consumed cards are permanently removed from your deck."
+  },
+  {
+    "NAMES": ["Combines", "combines"],
+    "DESCRIPTION": "Can be combined with a second card to produce a powerful new card by using a campfire action.  Cannot be upgraded."
   },
 
   {

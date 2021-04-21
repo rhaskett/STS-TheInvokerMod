@@ -14,15 +14,15 @@
 
   "theInvoker:Quas": {
     "NAME": "Quas",
-    "DESCRIPTION": "Channel 1 Quas Orb. NL Gain !M! Repair."
+    "DESCRIPTION": "Channel 1 theinvoker:Invokable Quas Orb. NL Gain !M! Repair while channeled."
   },
   "theInvoker:Wex": {
     "NAME": "Wex",
-    "DESCRIPTION": "Channel 1 Wez Orb."
+    "DESCRIPTION": "Channel 1 theinvoker:Invokable Wex Orb. NL Enemies lose !M! Strength while channeled."
   },
   "theInvoker:Exort": {
     "NAME": "Exort",
-    "DESCRIPTION": "Channel 1 Exort Orb. NL Gain !M! Strength."
+    "DESCRIPTION": "Channel 1 theinvoker:Invokable Exort Orb. NL Gain !M! Strength while channeled."
   },
 
   "theInvoker:SunStrike": {
@@ -46,28 +46,54 @@
     "DESCRIPTION": "Apply !M! Vulnerable and Weak to all enemies."
   },
 
-  "Gatherer:Dagon": {
+  "theInvoker:Dagon": {
     "NAME": "Dagon",
     "DESCRIPTION": "Deal !D! damage.",
     "EXTENDED_DESCRIPTION": [
-      "NL Can be upgraded 4 more times.",
-      "NL Can be upgraded 3 more times.",
-      "NL Can be upgraded 2 more times.",
-      "NL Can be upgraded 1 more times.",
-      "NL Fully upgraded."
+      " NL Can be upgraded 4 more times.",
+      " NL Can be upgraded 3 more times.",
+      " NL Can be upgraded 2 more times.",
+      " NL Can be upgraded 1 more times.",
+      " NL Fully upgraded."
     ]
   },
-  "Gatherer:HandOfMidas": {
-    "NAME": "Hand of Midas",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal gain !M! gold."
+  "theInvoker:Combines": {
+    "NAME": "Unused",
+    "DESCRIPTION": "Unused",
+    "EXTENDED_DESCRIPTION": [
+      ", ",
+      "itself.",
+      " and ",
+      "."
+    ]
   },
-  "Gatherer:OrbOfVenom": {
+  "theInvoker:HandOfMidas": {
+    "NAME": "Hand of Midas",
+    "DESCRIPTION": "If the enemy has !M! or less HP kill it. NL If Fatal, gain gold equal to its HP. NL Exhaust."
+  },
+  "theInvoker:OrbOfVenom": {
     "NAME": "Orb of Venom",
-    "DESCRIPTION": "Whenever an attack deals unblocked damage, apply !M! Poison."
+    "DESCRIPTION": "Whenever you attack an enemy, apply !M! Poison. NL theinvoker:Combines with "
   },
   "theInvoker:SharedTango": {
     "NAME": "Shared Tango",
-    "DESCRIPTION": "Apply !M! Regeneration. theinvoker:Consume"
+    "DESCRIPTION": "Apply !M! Regeneration. theinvoker:Consumed"
+  },
+  "theInvoker:FluffyHat": {
+    "NAME": "Fluffy Hat",
+    "DESCRIPTION": "Apply !M! Temporary_HP. NL theinvoker:Combines with "
+  },
+  "theInvoker:OrbOfCorrosion": {
+    "NAME": "Orb of Corrosion",
+    "DESCRIPTION": "Whenever you attack an enemy, apply !M! Poison.  Apply 8 Temporary_HP."
+  },
+  "theInvoker:StaffOfWizardry": {
+    "NAME": "Staff of Wizardry",
+    "DESCRIPTION": "Deal !D! damage. NL theinvoker:Combines with "
+  },
+  "theInvoker:OrchidMalevolence": {
+    "NAME": "Orchid Malevolence",
+    "DESCRIPTION": "Deal !D! damage."
   },
 
 
