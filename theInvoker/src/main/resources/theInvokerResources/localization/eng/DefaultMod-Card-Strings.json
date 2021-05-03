@@ -25,25 +25,53 @@
     "DESCRIPTION": "Channel 1 theinvoker:Invokable Exort Orb. NL Gain !M! Strength while channeled."
   },
 
-  "theInvoker:SunStrike": {
-    "NAME": "Sun Strike",
-    "DESCRIPTION": "Deal !D! damage."
+  "theInvoker:InvokedCardModifier": {
+    "NAME": "Unused",
+    "DESCRIPTION": "Ethereal. Exhaust. NL "
   },
-  "theInvoker:IceWall": {
-    "NAME": "Ice Wall",
-    "DESCRIPTION": "Apply Slow to all enemies."
+  "theInvoker:Alacrity": {
+    "NAME": "Alacrity",
+    "DESCRIPTION": "theinvoker:Spell. NL Your next basic Attack card is played !M! times."
   },
   "theInvoker:Cataclysm": {
     "NAME": "Cataclysm",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage to ALL enemies."
+  },
+  "theInvoker:ChaosMeteor": {
+    "NAME": "Chaos Meteor",
+    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage to ALL enemies."
   },
   "theInvoker:ColdSnap": {
     "NAME": "Cold Snap",
-    "DESCRIPTION": "Gain !B! Block 3 times."
+    "DESCRIPTION": "theinvoker:Spell. NL Gain !M! Block 3 times."
+  },
+  "theInvoker:DeafeningBlast": {
+    "NAME": "Deafening Blast",
+    "DESCRIPTION": "theinvoker:Spell. NL Apply !M! Weak to all enemies."
   },
   "theInvoker:EMP": {
     "NAME": "E.M.P.",
-    "DESCRIPTION": "Apply !M! Vulnerable and Weak to all enemies."
+    "DESCRIPTION": "theinvoker:Spell. NL Apply !M! Vulnerable to all enemies."
+  },
+  "theInvoker:ForgeSpirit": {
+    "NAME": "Forge Spirit",
+    "DESCRIPTION": "theinvoker:Spell. At the end of each turn, deal !M! damage to a random enemy."
+  },
+  "theInvoker:GhostWalk": {
+    "NAME": "Ghost Walk",
+    "DESCRIPTION": "theinvoker:Spell. Gain !M! Intangible."
+  },
+  "theInvoker:IceWall": {
+    "NAME": "Ice Wall",
+    "DESCRIPTION": "theinvoker:Spell. NL Apply Slow to all enemies."
+  },
+  "theInvoker:SunStrike": {
+    "NAME": "Sun Strike",
+    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage."
+  },
+  "theInvoker:Tornado": {
+    "NAME": "Tornado",
+    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage and dispel all buffs."
   },
 
   "theInvoker:Dagon": {
@@ -57,7 +85,16 @@
       " NL Fully upgraded."
     ]
   },
-  "theInvoker:Combines": {
+  "theInvoker:AbstractRecipeCard": {
+    "NAME": "Unused",
+    "DESCRIPTION": "Unused",
+    "EXTENDED_DESCRIPTION": [
+      "two ",
+      ".",
+      " and "
+    ]
+  },
+  "theInvoker:AbstractCombinesCard": {
     "NAME": "Unused",
     "DESCRIPTION": "Unused",
     "EXTENDED_DESCRIPTION": [
@@ -69,7 +106,7 @@
   },
   "theInvoker:HandOfMidas": {
     "NAME": "Hand of Midas",
-    "DESCRIPTION": "If the enemy has !M! or less HP kill it. NL If Fatal, gain gold equal to its HP. NL Exhaust."
+    "DESCRIPTION": "Kill an enemy with !M! or fewer HP. NL If Fatal, gain gold equal to its prior HP. NL Exhaust."
   },
   "theInvoker:OrbOfVenom": {
     "NAME": "Orb of Venom",
@@ -77,23 +114,52 @@
   },
   "theInvoker:SharedTango": {
     "NAME": "Shared Tango",
-    "DESCRIPTION": "Apply !M! Regeneration. theinvoker:Consumed"
+    "DESCRIPTION": "Apply !M! Regeneration. theinvoker:Consumed."
   },
   "theInvoker:FluffyHat": {
     "NAME": "Fluffy Hat",
     "DESCRIPTION": "Apply !M! Temporary_HP. NL theinvoker:Combines with "
   },
+  "theInvoker:OrbOfCorrosionRecipe": {
+    "NAME": "Orb of Corrosion",
+    "DESCRIPTION": "Doubles Orb of Venom Poison. theinvoker:Craftable from "
+  },
   "theInvoker:OrbOfCorrosion": {
     "NAME": "Orb of Corrosion",
-    "DESCRIPTION": "Whenever you attack an enemy, apply !M! Poison.  Apply 8 Temporary_HP."
+    "DESCRIPTION": "Whenever you attack an enemy, apply !M! Poison.  Apply 8 Temporary_HP.  NL theinvoker:Crafted."
   },
   "theInvoker:StaffOfWizardry": {
     "NAME": "Staff of Wizardry",
     "DESCRIPTION": "Deal !D! damage. NL theinvoker:Combines with "
   },
+  "theInvoker:OrchidMalevolenceRecipe": {
+    "NAME": "Orchid Malevolence",
+    "DESCRIPTION": "Adds theinvoker:Silence. NL theinvoker:Craftable from "
+  },
   "theInvoker:OrchidMalevolence": {
     "NAME": "Orchid Malevolence",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage and theinvoker:Silence. NL theinvoker:Crafted."
+  },
+  "theInvoker:EnergyBooster": {
+    "NAME": "Energy Booster",
+    "DESCRIPTION": "Gain !M! theinvoker:Energy_Boost. NL theinvoker:Combines with "
+  },
+  "theInvoker:Platemail": {
+    "NAME": "Platemail",
+    "DESCRIPTION": "Gain !B! Block. NL theinvoker:Combines with "
+  },
+  "theInvoker:LotusOrbRecipe": {
+    "NAME": "Lotus Orb",
+    "DESCRIPTION": "Adds theinvoker:Reflect. NL theinvoker:Craftable from "
+  },
+  "theInvoker:LotusOrb": {
+    "NAME": "Lotus Orb",
+    "DESCRIPTION": "Gain 1 theinvoker:Reflect, !B! Block and !M! theinvoker:Energy_Boost. NL theinvoker:Crafted."
+  },
+  "theInvoker:TownPortalScroll": {
+    "NAME": "Town Portal Scroll",
+    "DESCRIPTION": "Escape from a non-boss combat. NL Heal to full health. NL Skip the next !M! floors. NL theinvoker:Consumed.",
+    "UPGRADE_DESCRIPTION": "Escape from a non-boss combat. NL Heal to full health. NL Skip the next floor. NL theinvoker:Consumed."
   },
 
 

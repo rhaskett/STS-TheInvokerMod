@@ -14,7 +14,6 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,14 +24,12 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.cards.AbstractInvokerCard;
-import theInvoker.cards.items.AbstractCraftableCard;
-import theInvoker.cards.items.OrbOfCorrosion;
-import theInvoker.cards.items.OrchidMalevolence;
+import theInvoker.cards.items.AbstractRecipeCard;
+import theInvoker.cards.items.LotusOrbRecipe;
+import theInvoker.cards.items.OrbOfCorrosionRecipe;
+import theInvoker.cards.items.OrchidMalevolenceRecipe;
 import theInvoker.potions.PlaceholderPotion;
-import theInvoker.relics.BottledPlaceholderRelic;
-import theInvoker.relics.DefaultClickableRelic;
-import theInvoker.relics.PlaceholderRelic;
-import theInvoker.relics.PlaceholderRelic2;
+import theInvoker.relics.*;
 import theInvoker.util.IDCheckDontTouchPls;
 import theInvoker.util.TextureLoader;
 import theInvoker.variables.DefaultCustomVariable;
@@ -81,7 +78,7 @@ public class InvokerMod implements
     // TODO Add Description
     private static final String DESCRIPTION = "";
 
-    public static final List<AbstractCraftableCard> craftableCards = new ArrayList<>();
+//    public static final List<AbstractRecipeCard> recipes = new ArrayList<>();
 
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -245,10 +242,11 @@ public class InvokerMod implements
     
     // =============== CARD GROUPS ==========================
 
-    public static ArrayList<AbstractCraftableCard> getAllCraftableCards() {
-        ArrayList<AbstractCraftableCard> retVal = new ArrayList<>();
-        retVal.add(new OrbOfCorrosion());
-        retVal.add(new OrchidMalevolence());
+    public static ArrayList<AbstractRecipeCard> getAllRecipeCards() {
+        ArrayList<AbstractRecipeCard> retVal = new ArrayList<>();
+        retVal.add(new OrbOfCorrosionRecipe());
+        retVal.add(new OrchidMalevolenceRecipe());
+        retVal.add(new LotusOrbRecipe());
 
         return retVal;
     }
@@ -258,7 +256,7 @@ public class InvokerMod implements
         CardGroup retVal = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         CardGroup currentDeck = AbstractDungeon.player.masterDeck;
 
-        for (AbstractCraftableCard c : getAllCraftableCards())
+        for (AbstractRecipeCard c : getAllRecipeCards())
             if (currentDeck.findCardById(c.firstComponentID) != null &&
                     currentDeck.findCardById(c.secondComponentID) != null)
                 retVal.addToBottom(c);
@@ -387,17 +385,19 @@ public class InvokerMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new InvokeRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new BottleRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
+//        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
+//        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
+//        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
+//        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
         
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         // (the others are all starters so they're marked as seen in the character file)
-        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+        UnlockTracker.markRelicAsSeen(InvokeRelic.ID);
         logger.info("Done adding relics!");
     }
     

@@ -1,4 +1,4 @@
-package theInvoker.cards;
+package theInvoker.cards.spells;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -7,25 +7,25 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import theInvoker.InvokerMod;
+import theInvoker.cards.AbstractInvokerCard;
 import theInvoker.characters.TheInvoker;
 
-public class EMP extends AbstractInvokerCard {
+public class EMP extends AbstractSpellCard {
     public static final String ID = InvokerMod.makeID(EMP.class.getSimpleName());
-    public static final String IMG = InvokerMod.makeCardPath("Skill.png");
+    public static final String IMG = InvokerMod.makeCardPath("EMP.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int AMOUNT = 2;
     private static final int UPGRADE_PLUS = 1;
 
     public EMP() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = AMOUNT;
-//        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -37,8 +37,6 @@ public class EMP extends AbstractInvokerCard {
 
             for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.isDead && !monster.isDying) {
-                    this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber,
-                            false), this.magicNumber));
                     this.addToBot(new ApplyPowerAction(monster, p, new VulnerablePower(monster, this.magicNumber,
                             false), this.magicNumber));
                 }

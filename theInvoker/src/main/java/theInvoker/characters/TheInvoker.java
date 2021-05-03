@@ -1,11 +1,8 @@
 package theInvoker.characters;
 
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.math.MathUtils;
-import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -22,14 +19,10 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.InvokerMod;
-import theInvoker.cards.Attack;
-import theInvoker.cards.Defend;
-import theInvoker.cards.Exort;
-import theInvoker.cards.Invoke;
-import theInvoker.cards.items.*;
-import theInvoker.relics.DefaultClickableRelic;
-import theInvoker.relics.PlaceholderRelic;
-import theInvoker.relics.PlaceholderRelic2;
+import theInvoker.cards.*;
+import theInvoker.cards.items.SharedTango;
+import theInvoker.relics.BottleRelic;
+import theInvoker.relics.InvokeRelic;
 
 import java.util.ArrayList;
 
@@ -105,15 +98,13 @@ public class TheInvoker extends CustomPlayer {
     // =============== CHARACTER CLASS START =================
 
     public TheInvoker(String name, PlayerClass setClass) {
-        super(name, setClass, orbTextures,
-                "theInvokerResources/images/char/defaultCharacter/orb/vfx.png", null,
-                new SpriterAnimation(
-                        "theInvokerResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+        super(name, setClass, orbTextures, "theInvokerResources/images/char/defaultCharacter/orb/vfx.png",
+                (String) null, null);
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
 
-        initializeClass(null, // required call to load textures and setup energy/loadout.
+        initializeClass("theInvokerResources/images/char/defaultCharacter/idle.png", // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
                 InvokerMod.THE_INVOKER_SHOULDER_2, // campfire pose
                 InvokerMod.THE_INVOKER_SHOULDER_1, // another campfire pose
@@ -125,9 +116,9 @@ public class TheInvoker extends CustomPlayer {
 
         // =============== ANIMATIONS =================  
 
-        loadAnimation(InvokerMod.THE_INVOKER_SKELETON_ATLAS, InvokerMod.THE_INVOKER_SKELETON_JSON, 1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
+//        loadAnimation(InvokerMod.THE_INVOKER_SKELETON_ATLAS, InvokerMod.THE_INVOKER_SKELETON_JSON, 1.0f);
+//        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
+//        e.setTime(e.getEndTime() * MathUtils.random());
 
         // =============== /ANIMATIONS/ =================
 
@@ -162,21 +153,31 @@ public class TheInvoker extends CustomPlayer {
         retVal.add(Attack.ID);
         retVal.add(Attack.ID);
         retVal.add(Attack.ID);
+        retVal.add(Exort.ID);
 
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Invoke.ID);
-        retVal.add(Invoke.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
         retVal.add(SharedTango.ID);
 
-        retVal.add(Exort.ID);
+//        retVal.add(SunStrike.ID);
+//        retVal.add(IceWall.ID);
+//        retVal.add(EMP.ID);
+//        retVal.add(ColdSnap.ID);
+
+//        retVal.add(EnergyBooster.ID);
+//        retVal.add(Platemail.ID);
+
 //        retVal.add(OrbOfVenom.ID);
 //        retVal.add(FluffyHat.ID);
 //        retVal.add(HandOfMidas.ID);
 
-        retVal.add(StaffOfWizardry.ID);
-        retVal.add(StaffOfWizardry.ID);
-//        retVal.add(Quas.ID);
+//        retVal.add(StaffOfWizardry.ID);
+//        retVal.add(StaffOfWizardry.ID);
+        retVal.add(Wex.ID);
+        retVal.add(Quas.ID);
+        retVal.add(Exort.ID);
 
 
         return retVal;
@@ -186,15 +187,15 @@ public class TheInvoker extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(PlaceholderRelic.ID);
-//        retVal.add(PlaceholderRelic2.ID);
-        retVal.add(DefaultClickableRelic.ID);
+        retVal.add(InvokeRelic.ID);
+        retVal.add(BottleRelic.ID);
+//        retVal.add(DefaultClickableRelic.ID);
 
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
-        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
+        UnlockTracker.markRelicAsSeen(InvokeRelic.ID);
+//        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
+//        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
 
         return retVal;
     }

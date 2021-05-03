@@ -11,7 +11,7 @@ import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static theInvoker.InvokerMod.makeID;
 
 public abstract class AbstractCombinesCard extends AbstractInvokerCard {
-    private static final String COMBINES_ID = makeID("Combines");
+    private static final String COMBINES_ID = makeID(AbstractCombinesCard.class.getSimpleName());
     private static final CardStrings COMBINES_STRINGS = CardCrawlGame.languagePack.getCardStrings(COMBINES_ID);
     public static final String[] TEXT = COMBINES_STRINGS.EXTENDED_DESCRIPTION;
 
@@ -26,7 +26,8 @@ public abstract class AbstractCombinesCard extends AbstractInvokerCard {
 
         super(id, img, cost, type, color, rarity, target);
 
-        this.rawDescription = GetRawDescription();
+        this.rawDescription = getRawDescription();
+        this.initializeDescription();
     }
 
     public String combinesExtendedDescription() {
@@ -34,7 +35,7 @@ public abstract class AbstractCombinesCard extends AbstractInvokerCard {
         String thisName = languagePack.getCardStrings(this.cardID).NAME;
         boolean itself = false;
 
-        for (AbstractCraftableCard craftable: InvokerMod.getAllCraftableCards()) {
+        for (AbstractRecipeCard craftable: InvokerMod.getAllRecipeCards()) {
             String name = null;
             if (craftable.firstComponentID.equals(this.cardID))
                 name = languagePack.getCardStrings(craftable.secondComponentID).NAME;
@@ -66,7 +67,7 @@ public abstract class AbstractCombinesCard extends AbstractInvokerCard {
         }
     }
 
-    public abstract String GetRawDescription();
+    public abstract String getRawDescription();
 
     @Override
     public boolean canUpgrade() {

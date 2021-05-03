@@ -1,4 +1,18 @@
 {
+  "theInvoker:InvokeRelic": {
+    "NAME": "Invoke",
+    "FLAVOR": "Combines the properties of the elements currently being manipulated to create a new spell.",
+    "DESCRIPTIONS": [
+      "When the Invoker has three invoker orbs channels creates an ethereal #ySpell at the start of each turn."
+    ]
+  },
+  "theInvoker:BottleRelic": {
+    "NAME": "Bottle",
+    "FLAVOR": "An old bottle that survived the ages, the contents placed inside become enchanted.",
+    "DESCRIPTIONS": ["Starts with 3 charges. Gain #b1 [E] and heal 5 HP each use."
+    ]
+  },
+
   "theInvoker:PlaceholderRelic": {
     "NAME": "Placeholder Energy Relic",
     "FLAVOR": "The snake is a friend.",

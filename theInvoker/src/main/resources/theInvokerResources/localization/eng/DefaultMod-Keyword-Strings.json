@@ -1,7 +1,7 @@
 [
   {
-    "NAMES": ["Invoke", "invoke", "Invokable"],
-    "DESCRIPTION": "If you have three channelled invokable orbs, NL gain a new spell based on which orbs you have channelled."
+    "NAMES": ["Invoke", "invoke", "Invokable", "invokable"],
+    "DESCRIPTION": "If you have three channelled invokable orbs, gain a new spell based on which orbs you have channelled."
   },
   {
     "NAMES": ["Consume", "Consumed", "consume", "consumed"],
@@ -9,7 +9,39 @@
   },
   {
     "NAMES": ["Combines", "combines"],
-    "DESCRIPTION": "Can be combined with a second card to produce a powerful new card by using a campfire action.  Cannot be upgraded."
+    "DESCRIPTION": "Using a campfire action, can be combined with a second card to produce a powerful new card.  Cannot be upgraded."
+  },
+
+  {
+    "NAMES": ["Craftable", "craftable"],
+    "DESCRIPTION": "Can be crafted by combining two cards using a campfire action.  Gains the effect of both cards and an extra effect."
+  },
+  {
+    "NAMES": ["Crafted", "crafted"],
+    "DESCRIPTION": "Powerful card made by combining two #yCraftable cards. Cannot be upgraded."
+  },
+  {
+    "NAMES": ["Spell", "spell"],
+    "DESCRIPTION": "Invoker Spell. Can be enhanced by Spell Amplification"
+  },
+
+  {
+    "PROPER_NAME": "Energy Boost",
+    "NAMES": [
+      "Energy Boost",
+      "energy_boost",
+      "Energy_Boost"
+    ],
+    "DESCRIPTION": "Gain one energy per turn for each #yEnergy #yBoost."
+  },
+
+  {
+    "NAMES": ["Reflect", "reflect"],
+    "DESCRIPTION": "The next time you are attacked the attacking enemy suffers the same damage."
+  },
+  {
+    "NAMES": ["Silence", "silence"],
+    "DESCRIPTION": "Prevents any buffs/debuffs (but not attacks) from this enemy this turn."
   },
 
   {

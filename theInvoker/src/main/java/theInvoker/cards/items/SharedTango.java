@@ -14,7 +14,7 @@ import static theInvoker.InvokerMod.makeID;
 
 public class SharedTango extends AbstractInvokerCard {
     public static final String ID = makeID(SharedTango.class.getSimpleName());
-    public static final String IMG = makeCardPath("Power.png");
+    public static final String IMG = makeCardPath("Tango_Shared.png");
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -28,7 +28,6 @@ public class SharedTango extends AbstractInvokerCard {
     public SharedTango() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
-        exhaust = true;
         this.tags.add(CardTags.HEALING);
     }
 

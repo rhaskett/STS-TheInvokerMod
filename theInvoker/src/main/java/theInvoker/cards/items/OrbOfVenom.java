@@ -14,12 +14,12 @@ import static theInvoker.InvokerMod.makeID;
 
 public class OrbOfVenom extends AbstractCombinesCard {
     public static final String ID = makeID(OrbOfVenom.class.getSimpleName());
-    public static final String IMG = makeCardPath("Power.png");
+    public static final String IMG = makeCardPath("Orb_of_Venom.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
@@ -29,7 +29,7 @@ public class OrbOfVenom extends AbstractCombinesCard {
 
     public OrbOfVenom() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = MAGIC;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class OrbOfVenom extends AbstractCombinesCard {
     }
 
     @Override
-    public String GetRawDescription() {
+    public String getRawDescription() {
         return DESCRIPTION + combinesExtendedDescription();
     }
 

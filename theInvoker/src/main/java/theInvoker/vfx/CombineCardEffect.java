@@ -15,11 +15,10 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.FastCardObtainEffect;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import theInvoker.InvokerMod;
 import theInvoker.campfire.CombineBonfireOption;
-import theInvoker.cards.items.AbstractCraftableCard;
+import theInvoker.cards.items.AbstractRecipeCard;
 
 import java.util.Iterator;
 
@@ -50,10 +49,12 @@ public class CombineCardEffect extends AbstractGameEffect {
             var1 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
 
             while(var1.hasNext()) {
-                AbstractCraftableCard c = (AbstractCraftableCard) var1.next();
+                AbstractRecipeCard c = (AbstractRecipeCard) var1.next();
 
                 CardGroup currentDeck = AbstractDungeon.player.masterDeck;
-                currentDeck.addToBottom(c.makeStatEquivalentCopy());
+                AbstractDungeon.topLevelEffectsQueue.add(new ShowCardAndObtainEffect(c.createCard(),
+                        Settings.WIDTH / 3.0F, Settings.HEIGHT / 2.0F, false));
+
                 currentDeck.removeCard(c.firstComponentID);
                 currentDeck.removeCard(c.secondComponentID);
                 AbstractDungeon.player.loseGold(CombineBonfireOption.COST);

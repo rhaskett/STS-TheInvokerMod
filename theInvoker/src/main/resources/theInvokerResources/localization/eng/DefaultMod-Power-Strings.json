@@ -1,8 +1,21 @@
 {
         "theInvoker:VenomPower": {
                 "NAME": "Venom",
-                "DESCRIPTIONS": ["Whenever attacked apply #b", " Poison"]
+                "DESCRIPTIONS": ["Whenever you attack apply #b", " #yPoison"]
         },
+        "theInvoker:EnergyPower": {
+                "NAME": "Energy Boost",
+                "DESCRIPTIONS": ["At the start of the next", " turn", " #b"," turns", " gain 1 #yEnergy"]
+        },
+        "theInvoker:ForgeSpiritPower": {
+                "NAME": "Forge Spirit",
+                "DESCRIPTIONS": ["At the end of each turn, deal %1$s%2$s damage to a random enemy."]
+        },
+        "theInvoker:MultiAttackPower": {
+                "NAME": "Multi Attack",
+                "DESCRIPTIONS": ["Your next basic Attack card is played %1$s%2$s time(s)."]
+        },
+
 "theInvoker:CommonPower": {
         "NAME": "Placeholder Power",
         "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]

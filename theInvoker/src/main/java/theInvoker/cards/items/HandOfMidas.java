@@ -13,7 +13,7 @@ import static theInvoker.InvokerMod.makeID;
 
 public class HandOfMidas extends AbstractInvokerCard {
     public static final String ID = makeID(HandOfMidas.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("Hand_of_Midas.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;

@@ -17,7 +17,7 @@ public class Attack extends AbstractInvokerCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 5;  // Weaker due to Exort Orb
+    private static final int DAMAGE = 5;  // Weaker due to Exort Orb and Multiattack
     private static final int UPGRADE_DAMAGE = 3;
 
 
@@ -29,15 +29,11 @@ public class Attack extends AbstractInvokerCard {
         this.tags.add(CardTags.STRIKE);
     }
 
-
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn))); // TODO Effect
     }
 
-
-    // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {

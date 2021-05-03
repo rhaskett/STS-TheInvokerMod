@@ -12,7 +12,7 @@ import theInvoker.characters.TheInvoker;
 
 public class StaffOfWizardry extends AbstractCombinesCard {
     public static final String ID = InvokerMod.makeID(StaffOfWizardry.class.getSimpleName());
-    public static final String IMG = InvokerMod.makeCardPath("Attack.png");
+    public static final String IMG = InvokerMod.makeCardPath("Staff_of_Wizardry.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -36,7 +36,7 @@ public class StaffOfWizardry extends AbstractCombinesCard {
     }
 
     @Override
-    public String GetRawDescription() {
+    public String getRawDescription() {
         return DESCRIPTION + combinesExtendedDescription();
     }
 
