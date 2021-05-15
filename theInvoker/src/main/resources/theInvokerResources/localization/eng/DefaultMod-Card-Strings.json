@@ -14,11 +14,11 @@
 
   "theInvoker:Quas": {
     "NAME": "Quas",
-    "DESCRIPTION": "Channel 1 theinvoker:Invokable Quas Orb. NL Gain !M! Repair while channeled."
+    "DESCRIPTION": "Channel 1 theinvoker:Invokable Quas Orb. NL Gain !M! Dexterity while channeled."
   },
   "theInvoker:Wex": {
     "NAME": "Wex",
-    "DESCRIPTION": "Channel 1 theinvoker:Invokable Wex Orb. NL Enemies lose !M! Strength while channeled."
+    "DESCRIPTION": "Channel 1 theinvoker:Invokable Wex Orb. NL Draw !M! extra card each turn while channeled."
   },
   "theInvoker:Exort": {
     "NAME": "Exort",
@@ -35,7 +35,7 @@
   },
   "theInvoker:Cataclysm": {
     "NAME": "Cataclysm",
-    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage to ALL enemies."
+    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage to ALL enemies at the end of the round."
   },
   "theInvoker:ChaosMeteor": {
     "NAME": "Chaos Meteor",
@@ -55,11 +55,11 @@
   },
   "theInvoker:ForgeSpirit": {
     "NAME": "Forge Spirit",
-    "DESCRIPTION": "theinvoker:Spell. At the end of each turn, deal !M! damage to a random enemy."
+    "DESCRIPTION": "theinvoker:Spell. NL At the end of each turn, deal !M! damage to a random enemy."
   },
   "theInvoker:GhostWalk": {
     "NAME": "Ghost Walk",
-    "DESCRIPTION": "theinvoker:Spell. Gain !M! Intangible."
+    "DESCRIPTION": "theinvoker:Spell. NL Gain !M! Intangible."
   },
   "theInvoker:IceWall": {
     "NAME": "Ice Wall",
@@ -67,7 +67,7 @@
   },
   "theInvoker:SunStrike": {
     "NAME": "Sun Strike",
-    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage."
+    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage at the end of the round."
   },
   "theInvoker:Tornado": {
     "NAME": "Tornado",
@@ -76,7 +76,7 @@
 
   "theInvoker:Dagon": {
     "NAME": "Dagon",
-    "DESCRIPTION": "Deal !D! damage.",
+    "DESCRIPTION": "theinvoker:Spell. Deal !M! damage.",
     "EXTENDED_DESCRIPTION": [
       " NL Can be upgraded 4 more times.",
       " NL Can be upgraded 3 more times.",
@@ -114,7 +114,7 @@
   },
   "theInvoker:SharedTango": {
     "NAME": "Shared Tango",
-    "DESCRIPTION": "Apply !M! Regeneration. theinvoker:Consumed."
+    "DESCRIPTION": "Apply !M! Regeneration. NL theinvoker:Consumed."
   },
   "theInvoker:FluffyHat": {
     "NAME": "Fluffy Hat",
@@ -142,7 +142,7 @@
   },
   "theInvoker:EnergyBooster": {
     "NAME": "Energy Booster",
-    "DESCRIPTION": "Gain !M! theinvoker:Energy_Boost. NL theinvoker:Combines with "
+    "DESCRIPTION": "Gain !M! Energy. NL theinvoker:Combines with "
   },
   "theInvoker:Platemail": {
     "NAME": "Platemail",
@@ -150,16 +150,74 @@
   },
   "theInvoker:LotusOrbRecipe": {
     "NAME": "Lotus Orb",
-    "DESCRIPTION": "Adds theinvoker:Reflect. NL theinvoker:Craftable from "
+    "DESCRIPTION": "Adds theinvoker:Echo_Shell. NL theinvoker:Craftable from "
   },
   "theInvoker:LotusOrb": {
     "NAME": "Lotus Orb",
-    "DESCRIPTION": "Gain 1 theinvoker:Reflect, !B! Block and !M! theinvoker:Energy_Boost. NL theinvoker:Crafted."
+    "DESCRIPTION": "Gain 1 theinvoker:Echo_Shell, !B! Block and !M! Energy. NL theinvoker:Crafted."
   },
+  "theInvoker:SagesMask": {
+    "NAME": "Sage's Mask",
+    "DESCRIPTION": "Gain !M! theinvoker:Energy_Regen. NL theinvoker:Combines with "
+  },
+  "theInvoker:MedallionOfCourageRecipe": {
+    "NAME": "Medallion of Courage",
+    "DESCRIPTION": "Adds theinvoker:Flexible (Remove enemy block instead). NL theinvoker:Craftable from "
+  },
+  "theInvoker:MedallionOfCourage": {
+    "NAME": "Medallion of Courage",
+    "DESCRIPTION": "theinvoker:Flexible Gain !B! block or remove all enemy block. Gain !M! theinvoker:Energy_Regen. NL theinvoker:Crafted."
+  },
+  "theInvoker:FalconBladeRecipe": {
+    "NAME": "Falcon Blade",
+    "DESCRIPTION": "Doubles card effects and cost. NL theinvoker:Craftable from "
+  },
+  "theInvoker:FalconBlade": {
+    "NAME": "Falcon Blade",
+    "DESCRIPTION": "Apply 16 Temporary_HP and gain !M! theinvoker:Energy_Regen. NL theinvoker:Crafted."
+  },
+
   "theInvoker:TownPortalScroll": {
     "NAME": "Town Portal Scroll",
     "DESCRIPTION": "Escape from a non-boss combat. NL Heal to full health. NL Skip the next !M! floors. NL theinvoker:Consumed.",
     "UPGRADE_DESCRIPTION": "Escape from a non-boss combat. NL Heal to full health. NL Skip the next floor. NL theinvoker:Consumed."
+  },
+
+  "theInvoker:CullingBlade": {
+    "NAME": "Culling Blade",
+    "DESCRIPTION": "Ally. NL Kill an enemy with !M! or fewer HP. NL If Fatal, gain 3 theinvoker:Multi-Strike."
+  },
+  "theInvoker:SlightOfFist": {
+    "NAME": "Slight of Fist",
+    "DESCRIPTION": "Ally. NL Deals !M! damage to all enemies.  Double damage to bosses and elites."
+  },
+  "theInvoker:ShackleShot": {
+    "NAME": "Shackle Shot",
+    "DESCRIPTION": "Ally. NL If there are 2 or more enemies, stuns the target and a random second enemy."
+  },
+  "theInvoker:FalsePromise": {
+    "NAME": "False Promise",
+    "DESCRIPTION": "Ally. NL All damage taken this round is taken the next round instead."
+  },
+  "theInvoker:CrystalNova": {
+    "NAME": "Crystal Nova",
+    "DESCRIPTION": "Ally. NL Apply Slow to all enemies."
+  },
+  "theInvoker:AphoticShield": {
+    "NAME": "Aphotic Shield",
+    "DESCRIPTION": "Ally. NL Gain !M! Block. NL If you take damage this turn, deal !M! damage to all enemies."
+  },
+  "theInvoker:IonShell": {
+    "NAME": "Ion Shell",
+    "DESCRIPTION": "Ally. NL Enemy gains a debuff that damages all other ."
+  },
+  "theInvoker:PurifyingFlames": {
+    "NAME": "Purifying Flames",
+    "DESCRIPTION": "Ally. theinvoker:Flexible. NL Deal !M! damage and heal for a total of 20 over two turns."
+  },
+  "theInvoker:PoisonNova": {
+    "NAME": "Poison Nova",
+    "DESCRIPTION": "Ally. NL Apply !M! Poison to all enemies."
   },
 
 

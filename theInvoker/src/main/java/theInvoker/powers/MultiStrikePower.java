@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theInvoker.cards.Attack;
 
-public class MultiAttackPower extends CustomInvokerModPower {
-    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(MultiAttackPower.class);
+public class MultiStrikePower extends CustomInvokerModPower {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(MultiStrikePower.class);
 
-    public MultiAttackPower(final AbstractCreature owner, final int amount) {
+    public MultiStrikePower(final AbstractCreature owner, final int amount) {
         super(STATIC);
 
         this.owner = owner;
@@ -35,7 +35,6 @@ public class MultiAttackPower extends CustomInvokerModPower {
             }
 
             while (this.amount > 0) {
-                // TODD if m.isDead?
                 AbstractCard tmp = card.makeSameInstanceOf();
                 AbstractDungeon.player.limbo.addToBottom(tmp);
                 tmp.current_x = card.current_x;
@@ -49,10 +48,12 @@ public class MultiAttackPower extends CustomInvokerModPower {
                 tmp.purgeOnUse = true;
                 AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
                 --this.amount;
+
+                if (m.isDead)
+                    break;
             }
-            if (this.amount == 0) {
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-            }
+
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
 
     }

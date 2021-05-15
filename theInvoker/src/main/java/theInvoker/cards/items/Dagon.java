@@ -28,19 +28,19 @@ public class Dagon extends AbstractInvokerCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 10;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int UPGRADE_PLUS_DMG = 5;
     private static final int MAX_UPGRADES = 5;
 
     public Dagon() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
+        this.magicNumber = this.baseMagicNumber = DAMAGE;
 
         this.rawDescription = GetRawDescription();
         this.initializeDescription();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn))); // TODO Effect
+        this.addToBot(new DamageAction(m, new DamageInfo(p, this.magicNumber, damageTypeForTurn))); // TODO Effect
     }
 
     private String GetRawDescription() {
@@ -54,7 +54,7 @@ public class Dagon extends AbstractInvokerCard {
 
     public void upgrade() {
         if (timesUpgraded < MAX_UPGRADES) {
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_PLUS_DMG);
             ++this.timesUpgraded;
             this.upgraded = true;
             this.name = NAME + " " + (this.timesUpgraded + 1);

@@ -4,14 +4,14 @@
     "NAME": "Quas Orb",
     "DESCRIPTION": [
       "Invokes more defensive oriented cards.",
-      " NL #yEvoke: Lose #b Repair."
+      " NL #yEvoke: Lose #b Dexterity."
     ]
   },
   "theInvoker:WexOrb": {
     "NAME": "Wex Orb",
     "DESCRIPTION": [
       "Invokes buff/debuff oriented cards.",
-      " NL #yEvoke: Enemies gain #b Strength."
+      " NL #yEvoke: Draw one less card each turn."
     ]
   },
   "theInvoker:ExortOrb": {

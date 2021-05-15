@@ -41,7 +41,7 @@ public class BottleRelic extends CustomRelic implements ClickableRelic {
 
     @Override
     public void onRightClick() {
-        if (!isObtained || !isPlayerTurn || this.counter > 0) {
+        if (!isObtained || !isPlayerTurn || this.counter <= 0) {
             return;
         }
         

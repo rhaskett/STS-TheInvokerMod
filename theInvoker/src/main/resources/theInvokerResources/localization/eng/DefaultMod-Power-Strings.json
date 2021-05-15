@@ -1,7 +1,7 @@
 {
         "theInvoker:VenomPower": {
                 "NAME": "Venom",
-                "DESCRIPTIONS": ["Whenever you attack apply #b", " #yPoison"]
+                "DESCRIPTIONS": ["Whenever you attack apply #b", " #yPoison."]
         },
         "theInvoker:EnergyPower": {
                 "NAME": "Energy Boost",
@@ -9,14 +9,38 @@
         },
         "theInvoker:ForgeSpiritPower": {
                 "NAME": "Forge Spirit",
-                "DESCRIPTIONS": ["At the end of each turn, deal %1$s%2$s damage to a random enemy."]
+                "DESCRIPTIONS": ["At the end of your turn, deal %1$s%2$s damage to a random enemy."]
         },
-        "theInvoker:MultiAttackPower": {
-                "NAME": "Multi Attack",
+        "theInvoker:MultiStrikePower": {
+                "NAME": "Multi Strike",
                 "DESCRIPTIONS": ["Your next basic Attack card is played %1$s%2$s time(s)."]
         },
+        "theInvoker:EchoShellPower": {
+                "NAME": "Echo Shell",
+                "DESCRIPTIONS": ["The next %1$s time(s) you are attacked reflect the damage back to the attacker."]
+        },
+        "theInvoker:EndOfRoundDamagePower": {
+                "NAME": "Sun Strike",
+                "DESCRIPTIONS": ["This enemy will suffer %1$s damage at the end of this round."]
+        },
+        "theInvoker:EndOfTurnDamagePower": {
+                "NAME": "Delayed Damage",
+                "DESCRIPTIONS": ["Creature suffers %1$s damage at the end of its turn."]
+        },
+        "theInvoker:FalsePromisePower": {
+                "NAME": "False Promise",
+                "DESCRIPTIONS": ["%1$s damage is delayed until the end of next turn."]
+        },
+        "theInvoker:AphoticShieldPower": {
+                "NAME": "Aphotic Shield",
+                "DESCRIPTIONS": ["If you take damage this turn, the shield explodes for %1$s damage to all enemies."]
+        },
+        "theInvoker:IonShellPower": {
+                "NAME": "Ion Shell",
+                "DESCRIPTIONS": ["At the end of this enemy's turn, all other enemies take %1$s damage."]
+        },
 
-"theInvoker:CommonPower": {
+        "theInvoker:CommonPower": {
         "NAME": "Placeholder Power",
         "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
 },

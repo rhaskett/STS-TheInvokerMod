@@ -20,6 +20,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.InvokerMod;
 import theInvoker.cards.*;
+import theInvoker.cards.allies.FalsePromise;
+import theInvoker.cards.allies.PurifyingFlames;
 import theInvoker.cards.items.SharedTango;
 import theInvoker.relics.BottleRelic;
 import theInvoker.relics.InvokeRelic;
@@ -161,7 +163,9 @@ public class TheInvoker extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(SharedTango.ID);
 
-//        retVal.add(SunStrike.ID);
+//        retVal.add(Dagon.ID);
+//        retVal.add(FalsePromise.ID);
+//        retVal.add(PurifyingFlames.ID);
 //        retVal.add(IceWall.ID);
 //        retVal.add(EMP.ID);
 //        retVal.add(ColdSnap.ID);
@@ -176,8 +180,8 @@ public class TheInvoker extends CustomPlayer {
 //        retVal.add(StaffOfWizardry.ID);
 //        retVal.add(StaffOfWizardry.ID);
         retVal.add(Wex.ID);
-        retVal.add(Quas.ID);
-        retVal.add(Exort.ID);
+//        retVal.add(Quas.ID);
+//        retVal.add(Exort.ID);
 
 
         return retVal;

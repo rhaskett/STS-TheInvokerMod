@@ -22,27 +22,44 @@
   },
   {
     "NAMES": ["Spell", "spell"],
-    "DESCRIPTION": "Invoker Spell. Can be enhanced by Spell Amplification"
+    "DESCRIPTION": "Spells can be enhanced by #ySpell #yAmplification."
   },
-
   {
-    "PROPER_NAME": "Energy Boost",
-    "NAMES": [
-      "Energy Boost",
-      "energy_boost",
-      "Energy_Boost"
-    ],
-    "DESCRIPTION": "Gain one energy per turn for each #yEnergy #yBoost."
-  },
-
-  {
-    "NAMES": ["Reflect", "reflect"],
-    "DESCRIPTION": "The next time you are attacked the attacking enemy suffers the same damage."
+    "NAMES": ["Ally", "ally"],
+    "DESCRIPTION": "Ally spells are powerful but don't benefit from your buffs."
   },
   {
     "NAMES": ["Silence", "silence"],
     "DESCRIPTION": "Prevents any buffs/debuffs (but not attacks) from this enemy this turn."
   },
+  {
+    "NAMES": ["Multi-Strike", "multi-strike"],
+    "DESCRIPTION": "Your next basic Attack card is played multiple times."
+  },
+  {
+    "NAMES": ["Flexible", "multi-strike"],
+    "DESCRIPTION": "Card can be played on an enemy or yourself."
+  },
+
+  {
+    "PROPER_NAME": "Energy Regen",
+    "NAMES": [
+      "Energy Regen",
+      "energy_regen",
+      "Energy_Regen"
+    ],
+    "DESCRIPTION": "Gain [E] at the start of each turn."
+  },
+  {
+    "PROPER_NAME": "Echo Shell",
+    "NAMES": [
+      "Echo Shell",
+      "echo_shell",
+      "Echo_Shell"
+    ],
+    "DESCRIPTION": "The next time you are attacked reflect the damage back to the attacker."
+  },
+
 
   {
     "NAMES": [

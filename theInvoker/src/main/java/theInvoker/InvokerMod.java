@@ -24,10 +24,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.cards.AbstractInvokerCard;
-import theInvoker.cards.items.AbstractRecipeCard;
-import theInvoker.cards.items.LotusOrbRecipe;
-import theInvoker.cards.items.OrbOfCorrosionRecipe;
-import theInvoker.cards.items.OrchidMalevolenceRecipe;
+import theInvoker.cards.items.*;
 import theInvoker.potions.PlaceholderPotion;
 import theInvoker.relics.*;
 import theInvoker.util.IDCheckDontTouchPls;
@@ -247,6 +244,7 @@ public class InvokerMod implements
         retVal.add(new OrbOfCorrosionRecipe());
         retVal.add(new OrchidMalevolenceRecipe());
         retVal.add(new LotusOrbRecipe());
+        retVal.add(new MedallionOfCourageRecipe());
 
         return retVal;
     }

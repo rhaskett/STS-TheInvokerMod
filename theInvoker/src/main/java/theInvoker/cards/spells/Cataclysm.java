@@ -1,12 +1,13 @@
 package theInvoker.cards.spells;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
+import theInvoker.powers.EndOfRoundDamagePower;
 
 public class Cataclysm extends AbstractSpellCard {
     public static final String ID = InvokerMod.makeID(Cataclysm.class.getSimpleName());
@@ -28,13 +29,14 @@ public class Cataclysm extends AbstractSpellCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, damage, damageTypeForTurn,
-                AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters)
+            if (!monster.isDead && !monster.isDying)
+                this.addToBot(new ApplyPowerAction(m, p, new EndOfRoundDamagePower(m, p, this.magicNumber,
+                        AbstractGameAction.AttackEffect.FIRE)));
     }
 
-
     @Override
-    public void upgrade() {
+    public void upgrade(){
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DMG);

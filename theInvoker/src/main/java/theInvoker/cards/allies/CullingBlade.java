@@ -1,48 +1,40 @@
-package theInvoker.cards.items;
+package theInvoker.cards.allies;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import theInvoker.cards.AbstractInvokerCard;
 import theInvoker.characters.TheInvoker;
+import theInvoker.powers.MultiStrikePower;
 
 import static theInvoker.InvokerMod.makeCardPath;
 import static theInvoker.InvokerMod.makeID;
 
-public class HandOfMidas extends AbstractInvokerCard {
-    public static final String ID = makeID(HandOfMidas.class.getSimpleName());
-    public static final String IMG = makeCardPath("Hand_of_Midas.png");
+public class CullingBlade extends AbstractInvokerCard {
+    public static final String ID = makeID(CullingBlade.class.getSimpleName());
+    public static final String IMG = makeCardPath("Culling_Blade.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;
-    private static final int MAGIC = 20;
-    private static final int UPGRADE_PLUS_MAGIC = 8;
+    private static final int COST = 1;
+    private static final int MAGIC = 12;
+    private static final int UPGRADE_PLUS_MAGIC = 6;
+    private static final int MULTI_ATTACK = 3;
 
-    public HandOfMidas() {
+    public CullingBlade() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = MAGIC;
-        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (m.currentHealth <= this.baseMagicNumber) { // TODO Change to action for explanation when it doesn't work
-            AbstractDungeon.player.gainGold(m.currentHealth);
-            for(int i = 0; i < m.currentHealth; ++i)
-                AbstractDungeon.effectList.add(new GainPennyEffect(p, m.hb.cX, m.hb.cY, p.hb.cX, p.hb.cY,
-                        true));
-
+        if (m.currentHealth <= this.baseMagicNumber) {
             this.addToTop(new InstantKillAction(m));
-
-            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-                AbstractDungeon.actionManager.clearPostCombatActions();
-            }
+            this.addToBot(new ApplyPowerAction(p, p, new MultiStrikePower(p, MULTI_ATTACK), MULTI_ATTACK));
         }
     }
 
@@ -55,3 +47,4 @@ public class HandOfMidas extends AbstractInvokerCard {
         }
     }
 }
+

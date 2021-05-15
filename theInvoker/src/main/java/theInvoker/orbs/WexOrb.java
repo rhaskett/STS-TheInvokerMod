@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import theInvoker.InvokerMod;
+import theInvoker.cards.Wex;
 
 public class WexOrb extends InvokerOrb {
 
@@ -54,11 +55,13 @@ public class WexOrb extends InvokerOrb {
 
     @Override
     public void onEvoke() {
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, AbstractDungeon.player,
-                    new StrengthPower(monster, this.evokeAmount), this.evokeAmount,
-                    true, AbstractGameAction.AttackEffect.NONE));
-        }
+//        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+//            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, AbstractDungeon.player,
+//                    new StrengthPower(monster, this.evokeAmount), this.evokeAmount,
+//                    true, AbstractGameAction.AttackEffect.NONE));
+//        }
+
+        AbstractDungeon.player.gameHandSize -= Wex.MAGIC;
 
         // TODO Sound?
         // AbstractDungeon.actionManager.addToBottom(new SFXAction("TINGSHA")); // 3.And play a Jingle Sound.

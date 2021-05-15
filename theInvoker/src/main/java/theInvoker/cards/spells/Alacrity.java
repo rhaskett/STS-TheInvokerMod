@@ -6,8 +6,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theInvoker.characters.TheInvoker;
-import theInvoker.powers.ForgeSpiritPower;
-import theInvoker.powers.MultiAttackPower;
+import theInvoker.powers.MultiStrikePower;
 
 import static theInvoker.InvokerMod.makeCardPath;
 import static theInvoker.InvokerMod.makeID;
@@ -35,7 +34,7 @@ public class Alacrity extends AbstractSpellCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new MultiAttackPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new MultiStrikePower(p, this.magicNumber)));
     }
 
     @Override
