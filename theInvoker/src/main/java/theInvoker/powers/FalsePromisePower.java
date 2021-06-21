@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -58,7 +57,7 @@ public class FalsePromisePower extends CustomInvokerModPower {
 	public void atEndOfRound() {
 		if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
 			if(this.blocked > 0)
-				this.addToBot(new ApplyPowerAction(this.owner, this.owner, new EndOfTurnDamagePower(this.owner,
+				this.addToBot(new ApplyPowerAction(this.owner, this.owner, new EndOfRoundDamagePower(this.owner,
 						this.owner, this.blocked, AbstractGameAction.AttackEffect.LIGHTNING)));
 			this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
 		}

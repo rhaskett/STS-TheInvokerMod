@@ -14,11 +14,14 @@ public class InvokedCardModifier extends AbstractCardModifier {
     private static final CardStrings SPELL_STRINGS = CardCrawlGame.languagePack.getCardStrings(SPELL_CARD_ID);
     private static final String TEXT = SPELL_STRINGS.DESCRIPTION;
 
-    public InvokedCardModifier() {
+    private final int discount;
+
+    public InvokedCardModifier(int discount) {
+        this.discount = discount;
     }
 
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        return TEXT  + rawDescription;
+        return rawDescription + TEXT;
     }
 
     public boolean shouldApply(AbstractCard card) {
@@ -26,17 +29,18 @@ public class InvokedCardModifier extends AbstractCardModifier {
     }
 
     public void onInitialApplication(AbstractCard card) {
+        int discountedCost = Math.max(card.cost - discount, 0);
+        card.cost = discountedCost;
+        card.costForTurn = discountedCost;
         card.exhaust = true;
         card.isEthereal = true;
     }
 
-    public void onRemove(AbstractCard card) {
-        card.exhaust = false;
-        card.isEthereal = false;
-    }
+//    public void onRemove(AbstractCard card) {
+//    }
 
     public AbstractCardModifier makeCopy() {
-        return new InvokedCardModifier();
+        return new InvokedCardModifier(discount);
     }
 
     public String identifier(AbstractCard card) {

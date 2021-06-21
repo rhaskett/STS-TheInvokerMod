@@ -4,7 +4,6 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -14,28 +13,30 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.cards.AbstractInvokerCard;
 import theInvoker.cards.items.*;
-import theInvoker.potions.PlaceholderPotion;
+import theInvoker.powers.InvokePower;
 import theInvoker.relics.*;
 import theInvoker.util.IDCheckDontTouchPls;
 import theInvoker.util.TextureLoader;
-import theInvoker.variables.DefaultCustomVariable;
+import theInvoker.vfx.InvokeHelper;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 /*
@@ -57,6 +58,8 @@ public class InvokerMod implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
+        OnStartBattleSubscriber,
+        PostBattleSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
@@ -72,10 +75,7 @@ public class InvokerMod implements
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "The Invoker";
     private static final String AUTHOR = "Surrational";
-    // TODO Add Description
-    private static final String DESCRIPTION = "";
-
-//    public static final List<AbstractRecipeCard> recipes = new ArrayList<>();
+    private static final String DESCRIPTION = "With an intricate arsenal of spells at his disposal, Invoker can adapt to any battle situation.";
 
     // =============== INPUT TEXTURE LOCATION =================
     
@@ -92,7 +92,8 @@ public class InvokerMod implements
     private static final String ATTACK_DEFAULT_GRAY = "theInvokerResources/images/512/bg_attack_default_gray.png";
     private static final String SKILL_DEFAULT_GRAY = "theInvokerResources/images/512/bg_skill_default_gray.png";
     private static final String POWER_DEFAULT_GRAY = "theInvokerResources/images/512/bg_power_default_gray.png";
-    
+
+    // TODO Orb
     private static final String ENERGY_ORB_DEFAULT_GRAY = "theInvokerResources/images/512/card_default_gray_orb.png";
     private static final String CARD_ENERGY_ORB = "theInvokerResources/images/512/card_small_orb.png";
     
@@ -101,19 +102,19 @@ public class InvokerMod implements
     private static final String POWER_DEFAULT_GRAY_PORTRAIT = "theInvokerResources/images/1024/bg_power_default_gray.png";
     private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "theInvokerResources/images/1024/card_default_gray_orb.png";
     
-    // Character assets
+    // Character assets TODO button
     private static final String THE_INVOKER_BUTTON = "theInvokerResources/images/charSelect/DefaultCharacterButton.png";
     private static final String THE_INVOKER_PORTRAIT = "theInvokerResources/images/charSelect/InvokerPortraitBG.png";
-    public static final String THE_INVOKER_SHOULDER_1 = "theInvokerResources/images/char/defaultCharacter/shoulder.png";
-    public static final String THE_INVOKER_SHOULDER_2 = "theInvokerResources/images/char/defaultCharacter/shoulder2.png";
-    public static final String THE_INVOKER_CORPSE = "theInvokerResources/images/char/defaultCharacter/corpse.png";
+    public static final String THE_INVOKER_SHOULDER_1 = "theInvokerResources/images/char/invokerCharacter/shoulder.png";
+    public static final String THE_INVOKER_SHOULDER_2 = "theInvokerResources/images/char/invokerCharacter/shoulder2.png";
+    public static final String THE_INVOKER_CORPSE = "theInvokerResources/images/char/invokerCharacter/corpse.png";
     
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
-    public static final String BADGE_IMAGE = "theInvokerResources/images/Badge.png";
+    public static final String BADGE_IMAGE = "theInvokerResources/images/Badge.png"; //TODO Badge
     
     // Atlas and JSON files for the Animations
-    public static final String THE_INVOKER_SKELETON_ATLAS = "theInvokerResources/images/char/defaultCharacter/skeleton.atlas";
-    public static final String THE_INVOKER_SKELETON_JSON = "theInvokerResources/images/char/defaultCharacter/skeleton.json";
+    public static final String THE_INVOKER_SKELETON_ATLAS = "theInvokerResources/images/char/invokerCharacter/skeleton.atlas";
+    public static final String THE_INVOKER_SKELETON_JSON = "theInvokerResources/images/char/invokerCharacter/skeleton.json";
     
     // =============== MAKE IMAGE PATHS =================
     
@@ -176,7 +177,7 @@ public class InvokerMod implements
         // The actual mod Button is added below in receivePostInitialize()
         invokerModDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
         try {
-            SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", invokerModDefaultSettings); // ...right here
+            SpireConfig config = new SpireConfig("invokerMod", "theInvokerConfig", invokerModDefaultSettings); // ...right here
             // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
             config.load(); // Load the setting and set the boolean to equal it
             enablePlaceholder = config.getBool(ENABLE_PLACEHOLDER_SETTINGS);
@@ -241,10 +242,14 @@ public class InvokerMod implements
 
     public static ArrayList<AbstractRecipeCard> getAllRecipeCards() {
         ArrayList<AbstractRecipeCard> retVal = new ArrayList<>();
-        retVal.add(new OrbOfCorrosionRecipe());
-        retVal.add(new OrchidMalevolenceRecipe());
+        retVal.add(new AssaultCuirassRecipe());
+        retVal.add(new FalconBladeRecipe());
         retVal.add(new LotusOrbRecipe());
         retVal.add(new MedallionOfCourageRecipe());
+        retVal.add(new OrbOfCorrosionRecipe());
+        retVal.add(new OrchidMalevolenceRecipe());
+        retVal.add(new RodOfAtosRecipe());
+        retVal.add(new MoonShardRecipe());
 
         return retVal;
     }
@@ -254,11 +259,24 @@ public class InvokerMod implements
         CardGroup retVal = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         CardGroup currentDeck = AbstractDungeon.player.masterDeck;
 
-        for (AbstractRecipeCard c : getAllRecipeCards())
+        for (AbstractRecipeCard c : getAllRecipeCards()) {
+            if (c.firstComponentID.equals(c.secondComponentID)) {
+                int count = 0;
+                for (AbstractCard currentCard: currentDeck.group) {
+                    if (currentCard.cardID.equals(c.firstComponentID))
+                        count +=1;
+
+                    if(count == 2) {
+                        retVal.addToBottom(c);
+                        break;
+                    }
+                }
+            }
+
             if (currentDeck.findCardById(c.firstComponentID) != null &&
                     currentDeck.findCardById(c.secondComponentID) != null)
                 retVal.addToBottom(c);
-
+        }
 
         return retVal;
     }
@@ -303,8 +321,8 @@ public class InvokerMod implements
 
             enablePlaceholder = button.enabled; // The boolean true/false will be whether the button is enabled or not
             try {
-                // And based on that boolean, set the settings and save them  TODO change
-                SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", invokerModDefaultSettings);
+                // And based on that boolean, set the settings and save them
+                SpireConfig config = new SpireConfig("invokerMod", "theInvokerConfig", invokerModDefaultSettings);
                 config.setBool(ENABLE_PLACEHOLDER_SETTINGS, enablePlaceholder);
                 config.save();
             } catch (Exception e) {
@@ -361,7 +379,7 @@ public class InvokerMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, theInvoker.characters.TheInvoker.Enums.THE_INVOKER);
+//        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, theInvoker.characters.TheInvoker.Enums.THE_INVOKER);
         
         logger.info("Done editing potions");
     }
@@ -383,7 +401,7 @@ public class InvokerMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new InvokeRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new StarterRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
         BaseMod.addRelicToCustomPool(new BottleRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
 //        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
 //        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), theInvoker.characters.TheInvoker.Enums.COLOR_GRAY);
@@ -395,7 +413,7 @@ public class InvokerMod implements
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         // (the others are all starters so they're marked as seen in the character file)
-        UnlockTracker.markRelicAsSeen(InvokeRelic.ID);
+        UnlockTracker.markRelicAsSeen(StarterRelic.ID);
         logger.info("Done adding relics!");
     }
     
@@ -410,9 +428,9 @@ public class InvokerMod implements
         //Ignore this
         pathCheck();
         // Add the Custom Dynamic Variables
-        logger.info("Add variables");
+//        logger.info("Add variables");
         // Add the Custom Dynamic variables
-        BaseMod.addDynamicVariable(new DefaultCustomVariable());
+//        BaseMod.addDynamicVariable(new DefaultCustomVariable());
 //        BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
         
         logger.info("Adding cards");
@@ -442,40 +460,39 @@ public class InvokerMod implements
     
     @Override
     public void receiveEditStrings() {
-        logger.info("You seeing this?");
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
         
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Card-Strings.json");
+                getModID() + "Resources/localization/eng/InvokerMod-Card-Strings.json");
         
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Power-Strings.json");
+                getModID() + "Resources/localization/eng/InvokerMod-Power-Strings.json");
         
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Relic-Strings.json");
+                getModID() + "Resources/localization/eng/InvokerMod-Relic-Strings.json");
         
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Event-Strings.json");
+                getModID() + "Resources/localization/eng/InovkerMod-Event-Strings.json");
         
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Potion-Strings.json");
+                getModID() + "Resources/localization/eng/InvokerMod-Potion-Strings.json");
         
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Character-Strings.json");
+                getModID() + "Resources/localization/eng/InvokerMod-Character-Strings.json");
         
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Orb-Strings.json");
+                getModID() + "Resources/localization/eng/InvokerMod-Orb-Strings.json");
 
         // UIStrings
         BaseMod.loadCustomStringsFile(UIStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-UI-Strings.json");
+                getModID() + "Resources/localization/eng/InvokerMod-UI-Strings.json");
         
         logger.info("Done editing strings");
     }
@@ -495,21 +512,27 @@ public class InvokerMod implements
         // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
         
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/DefaultMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/InvokerMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         
-        if (keywords != null) {
-            for (Keyword keyword : keywords) {
+        if (keywords != null)
+            for (Keyword keyword : keywords)
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
-                //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
-            }
-        }
     }
-    
-    // ================ /LOAD THE KEYWORDS/ ===================    
-    
-    // this adds "ModName:" before the ID of any card/relic/power etc.
-    // in order to avoid conflicts if any other mod uses the same ID.
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        InvokeHelper.init();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                new InvokePower(AbstractDungeon.player)));
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        InvokeHelper.doStuff = false;
+    }  // TODO post abandon?
+
+
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
     }

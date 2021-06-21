@@ -1,11 +1,12 @@
 {
-  "theInvoker:InvokeRelic": {
-    "NAME": "Invoke",
-    "FLAVOR": "Combines the properties of the elements currently being manipulated to create a new spell.",
+  "theInvoker:StarterRelic": {
+    "NAME": "Cantrip",
+    "FLAVOR": "The most potent form of magic is primarily the art of memory.",
     "DESCRIPTIONS": [
-      "When the Invoker has three invoker orbs channels creates an ethereal #ySpell at the start of each turn."
+      "The first #ySpell #yInvoked each combat costs one less [E]."
     ]
   },
+
   "theInvoker:BottleRelic": {
     "NAME": "Bottle",
     "FLAVOR": "An old bottle that survived the ages, the contents placed inside become enchanted.",

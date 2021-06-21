@@ -13,7 +13,7 @@ import theInvoker.InvokerMod;
 import theInvoker.util.TextureLoader;
 
 public class BottleRelic extends CustomRelic implements ClickableRelic {
-    public static final String ID = InvokerMod.makeID(BottleRelic.class.getSimpleName());
+    public static final String ID = InvokerMod.makeID(BottleRelic.class.getSimpleName()); // TODO relic visuals
     private static final Texture IMG = TextureLoader.getTexture(InvokerMod.makeRelicPath("default_clickable_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(InvokerMod.makeRelicOutlinePath("default_clickable_relic.png"));
 

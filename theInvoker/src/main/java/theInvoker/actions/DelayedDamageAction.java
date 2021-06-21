@@ -41,9 +41,8 @@ public class DelayedDamageAction extends AbstractGameAction {
                     this.target.powers.remove(p);
                 }
 
-                if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+                if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead())
                     AbstractDungeon.actionManager.clearPostCombatActions();
-                }
 
                 this.addToTop(new WaitAction(0.1F));
             }

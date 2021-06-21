@@ -31,7 +31,7 @@ public class OrbOfCorrosion extends AbstractInvokerCard {
 
     public OrbOfCorrosion() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = MAGIC;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
     @Override

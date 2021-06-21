@@ -1,6 +1,7 @@
 package theInvoker.orbs;
 
 import basemod.abstracts.CustomOrb;
+import theInvoker.vfx.InvokeHelper;
 
 public abstract class InvokerOrb extends CustomOrb {
     public InvokerOrb(String ID, String NAME, int basePassiveAmount, int baseEvokeAmount, String passiveDescription,

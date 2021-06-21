@@ -9,25 +9,37 @@
   },
   "theInvoker:Invoke": {
     "NAME": "Invoke",
-    "DESCRIPTION": "theinvoker:Invoke NL Gain !B! Block."
+    "DESCRIPTION": "theinvoker:Invoke.",
+    "UPGRADE_DESCRIPTION": " NL Invoked card costs 1 less."
   },
 
   "theInvoker:Quas": {
     "NAME": "Quas",
-    "DESCRIPTION": "Channel 1 theinvoker:Invokable Quas Orb. NL Gain !M! Dexterity while channeled."
+    "DESCRIPTION": "Channel 1 theinvoker:Invokable theinvoker:Quas Orb.",
+    "UPGRADE_DESCRIPTION": " NL Draw 1 card."
   },
   "theInvoker:Wex": {
     "NAME": "Wex",
-    "DESCRIPTION": "Channel 1 theinvoker:Invokable Wex Orb. NL Draw !M! extra card each turn while channeled."
+    "DESCRIPTION": "Channel 1 theinvoker:Invokable theinvoker:Wex Orb.",
+    "UPGRADE_DESCRIPTION": " NL Draw 1 card."
   },
   "theInvoker:Exort": {
     "NAME": "Exort",
-    "DESCRIPTION": "Channel 1 theinvoker:Invokable Exort Orb. NL Gain !M! Strength while channeled."
+    "DESCRIPTION": "Channel 1 theinvoker:Invokable theinvoker:Exort Orb.",
+    "UPGRADE_DESCRIPTION": " NL Draw 1 card."
+  },
+  "theInvoker:NeedMoreOrbs": {
+    "NAME": "3 Orbs Needed",
+    "DESCRIPTION": "Channel 3 theinvoker:Invokable Orbs to theinvoker:Invoke a theinvoker:Spell at the start of your turn."
+  },
+  "theInvoker:NeedNewOrbCombo": {
+    "NAME": "New Combo Needed",
+    "DESCRIPTION": "Channel a different combination of theinvoker:Invokable Orbs to theinvoker:Invoke next round."
   },
 
   "theInvoker:InvokedCardModifier": {
     "NAME": "Unused",
-    "DESCRIPTION": "Ethereal. Exhaust. NL "
+    "DESCRIPTION": " NL Ethereal. Exhaust."
   },
   "theInvoker:Alacrity": {
     "NAME": "Alacrity",
@@ -71,7 +83,7 @@
   },
   "theInvoker:Tornado": {
     "NAME": "Tornado",
-    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage and dispel all buffs."
+    "DESCRIPTION": "theinvoker:Spell. NL theinvoker:Cyclone target enemy."
   },
 
   "theInvoker:Dagon": {
@@ -118,15 +130,15 @@
   },
   "theInvoker:FluffyHat": {
     "NAME": "Fluffy Hat",
-    "DESCRIPTION": "Apply !M! Temporary_HP. NL theinvoker:Combines with "
+    "DESCRIPTION": "Exhaust. Apply !M! Temporary_HP. NL theinvoker:Combines with "
   },
   "theInvoker:OrbOfCorrosionRecipe": {
     "NAME": "Orb of Corrosion",
-    "DESCRIPTION": "Doubles Orb of Venom Poison. theinvoker:Craftable from "
+    "DESCRIPTION": "Doubles Orb of Venom Poison. NL theinvoker:Craftable from "
   },
   "theInvoker:OrbOfCorrosion": {
     "NAME": "Orb of Corrosion",
-    "DESCRIPTION": "Whenever you attack an enemy, apply !M! Poison.  Apply 8 Temporary_HP.  NL theinvoker:Crafted."
+    "DESCRIPTION": "Whenever you attack an enemy, apply !M! Poison. Apply 8 Temporary_HP. NL theinvoker:Crafted."
   },
   "theInvoker:StaffOfWizardry": {
     "NAME": "Staff of Wizardry",
@@ -176,6 +188,38 @@
     "NAME": "Falcon Blade",
     "DESCRIPTION": "Apply 16 Temporary_HP and gain !M! theinvoker:Energy_Regen. NL theinvoker:Crafted."
   },
+  "theInvoker:Crown": {
+    "NAME": "Crown",
+    "DESCRIPTION": "Deal !D! damage and gain !B! Block. NL theinvoker:Combines with "
+  },
+  "theInvoker:RodOfAtosRecipe": {
+    "NAME": "Rod of Atos",
+    "DESCRIPTION": "Adds theinvoker:Cripple !M!. NL theinvoker:Craftable from "
+  },
+  "theInvoker:RodOfAtos": {
+    "NAME": "Rod of Atos",
+    "DESCRIPTION": "theinvoker:Cripple !M!. NL Deal !D! damage and gain !B! Block. NL theinvoker:Crafted."
+  },
+  "theInvoker:Hyperstone": {
+    "NAME": "Hyperstone",
+    "DESCRIPTION": "Gain !M! theinvoker:Multi-Strike. NL theinvoker:Combines with "
+  },
+  "theInvoker:AssaultCuirass": {
+    "NAME": "Assault Cuirass",
+    "DESCRIPTION": "Gain !B! Block and !M! theinvoker:Multi-Strike. NL theinvoker:Crafted."
+  },
+  "theInvoker:AssaultCuirassRecipe": {
+    "NAME": "Assault Cuirass",
+    "DESCRIPTION": "Adds an extra theinvoker:Multi-Strike. NL theinvoker:Craftable from "
+  },
+  "theInvoker:MoonShard": {
+    "NAME": "Moon Shard",
+    "DESCRIPTION": "Gain !M! theinvoker:Multi-Strike at the start of each turn. NL theinvoker:Crafted."
+  },
+  "theInvoker:MoonShardRecipe": {
+    "NAME": "Moon Shard",
+    "DESCRIPTION": "Gain the theinvoker:Multi-Strike at the start of each turn. NL theinvoker:Craftable from "
+  },
 
   "theInvoker:TownPortalScroll": {
     "NAME": "Town Portal Scroll",
@@ -185,39 +229,56 @@
 
   "theInvoker:CullingBlade": {
     "NAME": "Culling Blade",
-    "DESCRIPTION": "Ally. NL Kill an enemy with !M! or fewer HP. NL If Fatal, gain 3 theinvoker:Multi-Strike."
+    "DESCRIPTION": "theinvoker:Ally. NL Kill an enemy with !M! or fewer HP. NL If Fatal, gain 3 theinvoker:Multi-Strike."
   },
-  "theInvoker:SlightOfFist": {
-    "NAME": "Slight of Fist",
-    "DESCRIPTION": "Ally. NL Deals !M! damage to all enemies.  Double damage to bosses and elites."
+  "theInvoker:CounterHelix": {
+    "NAME": "Counter Helix",
+    "DESCRIPTION": "theinvoker:Ally. NL If target enemy is attacking. Deal !M! damage to all enemies.",
+    "EXTENDED_DESCRIPTION": ["Target enemy must be attacking."]
+  },
+  "theInvoker:SleightOfFist": {
+    "NAME": "Sleight of Fist",
+    "DESCRIPTION": "theinvoker:Ally. NL Deals !M! damage to all enemies. NL Double damage to bosses and elites."
   },
   "theInvoker:ShackleShot": {
     "NAME": "Shackle Shot",
-    "DESCRIPTION": "Ally. NL If there are 2 or more enemies, stuns the target and a random second enemy."
+    "DESCRIPTION": "theinvoker:Ally. NL If there are 2 or more enemies, stuns the target and a random second enemy."
   },
   "theInvoker:FalsePromise": {
     "NAME": "False Promise",
-    "DESCRIPTION": "Ally. NL All damage taken this round is taken the next round instead."
+    "DESCRIPTION": "theinvoker:Ally. NL All damage taken this round is taken the next round instead."
+  },
+  "theInvoker:FrostShield": {
+    "NAME": "Frost Shield",
+    "DESCRIPTION": "theinvoker:Ally. NL Gain !M! Block. NL Next turn, gain !M! Block."
   },
   "theInvoker:CrystalNova": {
     "NAME": "Crystal Nova",
-    "DESCRIPTION": "Ally. NL Apply Slow to all enemies."
+    "DESCRIPTION": "theinvoker:Ally. NL Apply Slow to all enemies."
   },
   "theInvoker:AphoticShield": {
     "NAME": "Aphotic Shield",
-    "DESCRIPTION": "Ally. NL Gain !M! Block. NL If you take damage this turn, deal !M! damage to all enemies."
+    "DESCRIPTION": "theinvoker:Ally. NL Gain !M! Block. NL If you take damage this turn, deal !M! damage to all enemies."
   },
   "theInvoker:IonShell": {
     "NAME": "Ion Shell",
-    "DESCRIPTION": "Ally. NL Enemy gains a debuff that damages all other ."
+    "DESCRIPTION": "theinvoker:Ally. NL Enemy gains a debuff that damages all other enemies for !M! each round."
   },
   "theInvoker:PurifyingFlames": {
     "NAME": "Purifying Flames",
-    "DESCRIPTION": "Ally. theinvoker:Flexible. NL Deal !M! damage and heal for a total of 20 over two turns."
+    "DESCRIPTION": "theinvoker:Ally. theinvoker:Flexible. NL Deal !M! damage and heal for a total of 20 over two turns."
   },
   "theInvoker:PoisonNova": {
     "NAME": "Poison Nova",
-    "DESCRIPTION": "Ally. NL Apply !M! Poison to all enemies."
+    "DESCRIPTION": "theinvoker:Ally. NL Apply !M! Poison to all enemies."
+  },
+  "theInvoker:Track": {
+    "NAME": "Track",
+    "DESCRIPTION": "theinvoker:Ally. NL If target enemy dies this round gain !M! Gold."
+  },
+  "theInvoker:ShadowPoison": {
+    "NAME": "Shadow Poison",
+    "DESCRIPTION": "theinvoker:Ally. NL Apply theinvoker:Shadow_Poison that damages all enemies for !M! at the end of next turn."
   },
 
 

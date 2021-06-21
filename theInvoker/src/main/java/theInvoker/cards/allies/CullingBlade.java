@@ -21,8 +21,8 @@ public class CullingBlade extends AbstractInvokerCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int MAGIC = 12;
-    private static final int UPGRADE_PLUS_MAGIC = 6;
+    private static final int MAGIC = 14;
+    private static final int UPGRADE_PLUS_MAGIC = 8;
     private static final int MULTI_ATTACK = 3;
 
     public CullingBlade() {

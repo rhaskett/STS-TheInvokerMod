@@ -23,8 +23,8 @@ public class Alacrity extends AbstractSpellCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    public static final int COST = 0;
-    public static final int MAGIC = 2;
+    public static final int COST = 1;
+    public static final int MAGIC = 3;
     public static final int UPGRADE_PLUS_MAGIC = 1;
 
     public Alacrity() {

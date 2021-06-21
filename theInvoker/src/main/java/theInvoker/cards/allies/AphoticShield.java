@@ -1,6 +1,7 @@
 package theInvoker.cards.allies;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -16,17 +17,17 @@ public class AphoticShield extends AbstractInvokerCard {
     public static final String IMG = makeCardPath("Aphotic_Shield.png");
 
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int MAGIC = 5;
-    private static final int UPGRADED_MAGIC = 2;
+    private static final int MAGIC = 6;
+    private static final int UPGRADED_MAGIC = 3;
 
     public AphoticShield() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = MAGIC;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
     @Override

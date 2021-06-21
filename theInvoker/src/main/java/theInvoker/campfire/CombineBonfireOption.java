@@ -15,13 +15,11 @@ public class CombineBonfireOption extends AbstractCampfireOption {
     public static final String[] DESCRIPTIONS = UI_STRINGS.TEXT;
     public static final int COST = 50;
 
-
     public CombineBonfireOption(boolean active) {
         this.label = DESCRIPTIONS[0] + COST + DESCRIPTIONS[1];
 
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
             c.update();
-        }
 
         this.usable = active;
         if (active) {

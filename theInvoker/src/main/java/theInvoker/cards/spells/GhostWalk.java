@@ -19,7 +19,7 @@ public class GhostWalk extends AbstractSpellCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 3;
-    private static final int UPGRADE_COST = 2;
+    private static final int UPGRADED_COST = 2;
     private static final int MAGIC = 1;
 
     public GhostWalk() {
@@ -37,7 +37,7 @@ public class GhostWalk extends AbstractSpellCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            updateCost(UPGRADE_COST);
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

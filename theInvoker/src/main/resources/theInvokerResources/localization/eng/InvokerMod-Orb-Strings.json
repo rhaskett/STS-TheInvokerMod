@@ -3,22 +3,22 @@
   "theInvoker:QuasOrb": {
     "NAME": "Quas Orb",
     "DESCRIPTION": [
-      "Invokes more defensive oriented cards.",
-      " NL #yEvoke: Lose #b Dexterity."
+      "Invokes more defensively oriented cards.",
+      " NL #yEvoke: Lose the Dexterity bonus from this orb."
     ]
   },
   "theInvoker:WexOrb": {
     "NAME": "Wex Orb",
     "DESCRIPTION": [
       "Invokes buff/debuff oriented cards.",
-      " NL #yEvoke: Draw one less card each turn."
+      " NL #yEvoke: Lose the card draw bonus from this orb."
     ]
   },
   "theInvoker:ExortOrb": {
     "NAME": "Exort Orb",
     "DESCRIPTION": [
-      "Invokes more attack oriented cards.",
-      " NL #yEvoke: Lose #b Strength."
+      "Invokes more offensively oriented cards.",
+      " NL #yEvoke: Lose the Strength bonus from this orb."
     ]
   }
 }

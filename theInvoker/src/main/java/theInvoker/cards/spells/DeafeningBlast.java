@@ -18,7 +18,7 @@ public class DeafeningBlast extends AbstractSpellCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int UPGRADE_COST = 0;
+    private static final int UPGRADED_COST = 0;
     private static final int AMOUNT = 2;
 
     public DeafeningBlast() {
@@ -37,7 +37,7 @@ public class DeafeningBlast extends AbstractSpellCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            updateCost(UPGRADE_COST);
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

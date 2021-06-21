@@ -2,13 +2,8 @@ package theInvoker.cards.allies;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theInvoker.cards.AbstractInvokerCard;
@@ -28,8 +23,8 @@ public class ShackleShot extends AbstractInvokerCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    private static final int COST = 4;
-    private static final int UPGRADED_COST = 3;
+    private static final int COST = 3;
+    private static final int UPGRADED_COST = 2;
 
     public ShackleShot() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

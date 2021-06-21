@@ -1,6 +1,7 @@
 package theInvoker.cards.allies;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theInvoker.cards.AbstractFlexibleCard;
 import theInvoker.characters.TheInvoker;
+import theInvoker.powers.EndOfTurnHealPower;
 
 import static theInvoker.InvokerMod.makeCardPath;
 import static theInvoker.InvokerMod.makeID;
@@ -23,8 +25,8 @@ public class PurifyingFlames extends AbstractFlexibleCard {
 
     private static final int COST = 2;
     private static final int UPGRADED_COST = 1;
-    private static final int MAGIC = 14;
-    private static final int HEAL = 10;
+    private static final int MAGIC = 12;
+    private static final int HEAL = 20;
 
     public PurifyingFlames() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -36,13 +38,13 @@ public class PurifyingFlames extends AbstractFlexibleCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCreature target = null;
-        if(m != null) {
+        if(m != null)
             target = m;
-        }else if(this.target == CardTarget.SELF){
+        else if(this.target == CardTarget.SELF)
             target = p;
-        }
+
         this.addToBot(new DamageAction(target, new DamageInfo(p, this.magicNumber), AbstractGameAction.AttackEffect.FIRE));
-//        this.addToBot(new ApplyPowerAction(p, p, new HealOverTimePower()));
+        this.addToBot(new ApplyPowerAction(p, p, new EndOfTurnHealPower(target, p, HEAL)));
     }
 
     @Override

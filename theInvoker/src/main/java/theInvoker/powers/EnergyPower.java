@@ -1,5 +1,6 @@
 package theInvoker.powers;
 
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
@@ -35,7 +36,7 @@ public class EnergyPower extends CustomInvokerModPower {
 
         --this.amount;
         if (this.amount == 0)
-            this.owner.powers.remove(this);
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         else
             this.updateDescription();
     }

@@ -1,4 +1,9 @@
 {
+        "theInvoker:InvokePower": {
+                "NAME": "Invoke",
+                "DESCRIPTIONS": ["When you have three channelled orbs, gain a spell card at the start of your turn based on the orbs you have channelled."]
+        },
+
         "theInvoker:VenomPower": {
                 "NAME": "Venom",
                 "DESCRIPTIONS": ["Whenever you attack apply #b", " #yPoison."]
@@ -12,8 +17,8 @@
                 "DESCRIPTIONS": ["At the end of your turn, deal %1$s%2$s damage to a random enemy."]
         },
         "theInvoker:MultiStrikePower": {
-                "NAME": "Multi Strike",
-                "DESCRIPTIONS": ["Your next basic Attack card is played %1$s%2$s time(s)."]
+                "NAME": "Multi-Strike",
+                "DESCRIPTIONS": ["Your next basic Attack card is played %1$s time(s)."]
         },
         "theInvoker:EchoShellPower": {
                 "NAME": "Echo Shell",
@@ -27,6 +32,10 @@
                 "NAME": "Delayed Damage",
                 "DESCRIPTIONS": ["Creature suffers %1$s damage at the end of its turn."]
         },
+        "theInvoker:EndOfTurnHealPower": {
+                "NAME": "Delayed Healing",
+                "DESCRIPTIONS": ["Creature heals %1$s at the end of its turn."]
+        },
         "theInvoker:FalsePromisePower": {
                 "NAME": "False Promise",
                 "DESCRIPTIONS": ["%1$s damage is delayed until the end of next turn."]
@@ -38,6 +47,19 @@
         "theInvoker:IonShellPower": {
                 "NAME": "Ion Shell",
                 "DESCRIPTIONS": ["At the end of this enemy's turn, all other enemies take %1$s damage."]
+        },
+        "theInvoker:MultiStrikeRoundStartPower": {
+                "NAME": "Moon Shard",
+                "DESCRIPTIONS": ["At the start of your turn, gain %1$s #yMulti-Strike."]
+        },
+        "theInvoker:TrackPower": {
+                "NAME": "Bounty",
+                "DESCRIPTIONS": ["If enemy dies this turn, gain %1$s Gold."]
+        },
+        "theInvoker:ShadowPoisonPower": {
+                "NAME": "Shadow Poison",
+                "DESCRIPTIONS": ["At the end of this round, this enemy will take %1$s damage.",
+                        "At the end of next round, this enemy will take %1$s damage."]
         },
 
         "theInvoker:CommonPower": {

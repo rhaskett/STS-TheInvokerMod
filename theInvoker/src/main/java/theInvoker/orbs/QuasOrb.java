@@ -20,7 +20,6 @@ public class QuasOrb extends InvokerOrb {
     public static final String ORB_ID = InvokerMod.makeID(QuasOrb.class.getSimpleName());
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESCRIPTIONS = orbString.DESCRIPTION;
-    public static final String ORB_KEY = "Q";
 
     private static final int PASSIVE_AMOUNT = 0;
     private static final int EVOKE_AMOUNT = 1;
@@ -34,7 +33,7 @@ public class QuasOrb extends InvokerOrb {
 
     public QuasOrb() {
         super(ORB_ID, orbString.NAME, PASSIVE_AMOUNT, EVOKE_AMOUNT, DESCRIPTIONS[0], DESCRIPTIONS[1],
-                InvokerMod.makeOrbPath("quas_orb.png"));
+                InvokerMod.makeOrbPath("Quas_orb.png"));
 
         updateDescription();
 

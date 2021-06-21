@@ -20,11 +20,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.InvokerMod;
 import theInvoker.cards.*;
-import theInvoker.cards.allies.FalsePromise;
-import theInvoker.cards.allies.PurifyingFlames;
 import theInvoker.cards.items.SharedTango;
 import theInvoker.relics.BottleRelic;
-import theInvoker.relics.InvokeRelic;
+import theInvoker.relics.StarterRelic;
 
 import java.util.ArrayList;
 
@@ -32,7 +30,6 @@ import static theInvoker.characters.TheInvoker.Enums.COLOR_GRAY;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
-//All text (starting description and loadout, anything labeled TEXT[]) can be found in DefaultMod-character-Strings.json in the resources
 
 public class TheInvoker extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(TheInvoker.class.getName());
@@ -70,7 +67,7 @@ public class TheInvoker extends CustomPlayer {
 
     // =============== STRINGS =================
 
-    private static final String ID = InvokerMod.makeID("DefaultCharacter"); // TODO Change?
+    private static final String ID = InvokerMod.makeID("InvokerCharacter");
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
@@ -81,17 +78,17 @@ public class TheInvoker extends CustomPlayer {
     // =============== TEXTURES OF BIG ENERGY ORB ===============
 
     public static final String[] orbTextures = {  // TODO Move Resources
-            "theInvokerResources/images/char/defaultCharacter/orb/layer1.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer2.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer3.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer4.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer5.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer6.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer1d.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer2d.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer3d.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer4d.png",
-            "theInvokerResources/images/char/defaultCharacter/orb/layer5d.png",};
+            "theInvokerResources/images/char/invokerCharacter/orb/layer1.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer2.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer3.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer4.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer5.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer6.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer1d.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer2d.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer3d.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer4d.png",
+            "theInvokerResources/images/char/invokerCharacter/orb/layer5d.png",};
 
     // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
@@ -100,13 +97,13 @@ public class TheInvoker extends CustomPlayer {
     // =============== CHARACTER CLASS START =================
 
     public TheInvoker(String name, PlayerClass setClass) {
-        super(name, setClass, orbTextures, "theInvokerResources/images/char/defaultCharacter/orb/vfx.png",
+        super(name, setClass, orbTextures, "theInvokerResources/images/char/invokerCharacter/orb/vfx.png",
                 (String) null, null);
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
 
-        initializeClass("theInvokerResources/images/char/defaultCharacter/idle.png", // required call to load textures and setup energy/loadout.
+        initializeClass("theInvokerResources/images/char/invokerCharacter/idle.png", // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
                 InvokerMod.THE_INVOKER_SHOULDER_2, // campfire pose
                 InvokerMod.THE_INVOKER_SHOULDER_1, // another campfire pose
@@ -169,6 +166,11 @@ public class TheInvoker extends CustomPlayer {
 //        retVal.add(IceWall.ID);
 //        retVal.add(EMP.ID);
 //        retVal.add(ColdSnap.ID);
+//        retVal.add(Invoke.ID);
+//        retVal.add(ShadowPoison.ID);
+//        retVal.add(ShadowPoison.ID);
+//        retVal.add(ShadowPoison.ID);
+//        retVal.add(PoisonNova.ID);
 
 //        retVal.add(EnergyBooster.ID);
 //        retVal.add(Platemail.ID);
@@ -179,7 +181,8 @@ public class TheInvoker extends CustomPlayer {
 
 //        retVal.add(StaffOfWizardry.ID);
 //        retVal.add(StaffOfWizardry.ID);
-        retVal.add(Wex.ID);
+//        retVal.add(AphoticShield.ID);
+//        retVal.add(Wex.ID);
 //        retVal.add(Quas.ID);
 //        retVal.add(Exort.ID);
 
@@ -191,13 +194,13 @@ public class TheInvoker extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(InvokeRelic.ID);
-        retVal.add(BottleRelic.ID);
+        retVal.add(StarterRelic.ID);
+//        retVal.add(BottleRelic.ID);
 //        retVal.add(DefaultClickableRelic.ID);
 
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
-        UnlockTracker.markRelicAsSeen(InvokeRelic.ID);
+        UnlockTracker.markRelicAsSeen(StarterRelic.ID);
 //        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
 //        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
 

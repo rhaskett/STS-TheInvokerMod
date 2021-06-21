@@ -21,7 +21,7 @@ public class IceWall extends AbstractSpellCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0; // TODO Slow plus other effect that can be amped
+    private static final int UPGRADED_COST = 0; // TODO Slow plus other block that can be amped
 
     public IceWall() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -38,7 +38,7 @@ public class IceWall extends AbstractSpellCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            updateCost(UPGRADED_COST);
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

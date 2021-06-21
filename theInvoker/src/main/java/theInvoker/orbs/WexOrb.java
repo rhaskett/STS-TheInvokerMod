@@ -4,15 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.OrbStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
@@ -20,11 +16,9 @@ import theInvoker.InvokerMod;
 import theInvoker.cards.Wex;
 
 public class WexOrb extends InvokerOrb {
-
     public static final String ORB_ID = InvokerMod.makeID(WexOrb.class.getSimpleName());
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESCRIPTIONS = orbString.DESCRIPTION;
-    public static final String ORB_KEY = "W";
 
     private static final int PASSIVE_AMOUNT = 0;
     private static final int EVOKE_AMOUNT = 1;
@@ -38,7 +32,7 @@ public class WexOrb extends InvokerOrb {
 
     public WexOrb() {
         super(ORB_ID, orbString.NAME, PASSIVE_AMOUNT, EVOKE_AMOUNT, DESCRIPTIONS[0], DESCRIPTIONS[1],
-                InvokerMod.makeOrbPath("default_orb.png"));
+                InvokerMod.makeOrbPath("Wex_orb.png"));
 
         updateDescription();
 

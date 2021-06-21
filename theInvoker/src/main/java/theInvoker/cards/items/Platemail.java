@@ -22,7 +22,7 @@ public class Platemail extends AbstractCombinesCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
+    public static final int COST = 1;
     public static final int BLOCK = 9;
 
     public Platemail() {

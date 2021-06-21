@@ -1,20 +1,33 @@
 [
   {
     "NAMES": ["Invoke", "invoke", "Invokable", "invokable"],
-    "DESCRIPTION": "If you have three channelled invokable orbs, gain a new spell based on which orbs you have channelled."
+    "DESCRIPTION": "When you have three channelled orbs, gain a spell into your hand at the start of your turn based on the orbs you have channelled."
   },
+  {
+    "NAMES": ["Quas", "quas"],
+    "DESCRIPTION": "Gain 1 #yDexterity while channelled. Invokes more defensively oriented cards."
+  },
+  {
+    "NAMES": ["Wex", "wex"],
+    "DESCRIPTION": "Draw 1 more card each turn while channelled. Invokes buff/debuff focused cards."
+  },
+  {
+    "NAMES": ["Exort", "exort"],
+    "DESCRIPTION": "Gain 1 #yStrength while channelled. Invokes more offensively oriented cards."
+  },
+
   {
     "NAMES": ["Consume", "Consumed", "consume", "consumed"],
     "DESCRIPTION": "Consumed cards are permanently removed from your deck."
   },
   {
     "NAMES": ["Combines", "combines"],
-    "DESCRIPTION": "Using a campfire action, can be combined with a second card to produce a powerful new card.  Cannot be upgraded."
+    "DESCRIPTION": "Can be combined with a second card at a campfire to produce a powerful new card. Cannot be upgraded."
   },
 
   {
     "NAMES": ["Craftable", "craftable"],
-    "DESCRIPTION": "Can be crafted by combining two cards using a campfire action.  Gains the effect of both cards and an extra effect."
+    "DESCRIPTION": "Can be crafted by combining two cards using a campfire action. Gains the effect of both cards and an extra effect."
   },
   {
     "NAMES": ["Crafted", "crafted"],
@@ -22,7 +35,7 @@
   },
   {
     "NAMES": ["Spell", "spell"],
-    "DESCRIPTION": "Spells can be enhanced by #ySpell #yAmplification."
+    "DESCRIPTION": "Spell cards can be enhanced by #ySpell #yAmplification."
   },
   {
     "NAMES": ["Ally", "ally"],
@@ -37,8 +50,25 @@
     "DESCRIPTION": "Your next basic Attack card is played multiple times."
   },
   {
-    "NAMES": ["Flexible", "multi-strike"],
+    "NAMES": ["Flexible", "flexible"],
     "DESCRIPTION": "Card can be played on an enemy or yourself."
+  },
+  {
+    "NAMES": ["Cripple", "cripple"],
+    "DESCRIPTION": "Enemy loses strength for 1 turn."
+  },
+  {
+    "NAMES": ["Cyclone", "cyclone"],
+    "DESCRIPTION": "Removes buffs from target (Some boss specific buffs are not effected)."
+  },
+  {
+    "PROPER_NAME": "Shadow Poison",
+    "NAMES": [
+      "Shadow Poison",
+      "shadow_poison",
+      "Shadow_Poison"
+    ],
+    "DESCRIPTION": "Each additional application of #yShadow #yPoison doubles the current stacks but delays the damage until the next round."
   },
 
   {

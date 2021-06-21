@@ -2,9 +2,11 @@ package theInvoker.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theInvoker.actions.RemoveBuffsAction;
 
 public class AphoticShieldPower extends CustomInvokerModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(AphoticShieldPower.class);
@@ -21,7 +23,7 @@ public class AphoticShieldPower extends CustomInvokerModPower {
 
     @Override
     public void atEndOfRound() {
-        this.owner.powers.remove(this);
+        this.addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, this));
     }
 
     @Override
@@ -30,11 +32,12 @@ public class AphoticShieldPower extends CustomInvokerModPower {
                 && info.owner != null && info.owner != this.owner && damageAmount > 0) {
 
             this.flash();
+            this.addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, this));
             this.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, this.amount,
-                    DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SHIELD));
+                    DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SHIELD));
+
         }
 
-        this.owner.powers.remove(this);
         return damageAmount;
     }
 
