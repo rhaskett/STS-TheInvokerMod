@@ -14,9 +14,7 @@ MegaCrit and Valve for making great games.
 
 Default Mod Template courtesy of Gremious.
 
-Iryry
-
-Mods by Celcath, the JorbsMod team, and the Evilwithin team were inspirations at multiple points. 
+Mods by Celcath, the JorbsMod team, and the Evilwithin team for inspiration at multiple points. 
 
 This mod would not have been possible without the assistance of many people on the STS-Modding Channel.
 

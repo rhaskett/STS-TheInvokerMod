@@ -9,14 +9,14 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theInvoker.cards.AbstractFlexibleCard;
 import theInvoker.characters.TheInvoker;
-import theInvoker.powers.EndOfTurnHealPower;
+import theInvoker.powers.MultiStrikePower;
 
 import static theInvoker.InvokerMod.makeCardPath;
 import static theInvoker.InvokerMod.makeID;
 
-public class PurifyingFlames extends AbstractFlexibleCard {
-    public static final String ID = makeID(PurifyingFlames.class.getSimpleName());
-    public static final String IMG = makeCardPath("Purifying_Flames.png");
+public class BloodRage extends AbstractFlexibleCard {
+    public static final String ID = makeID(BloodRage.class.getSimpleName());
+    public static final String IMG = makeCardPath("Blood_Rage.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -25,14 +25,11 @@ public class PurifyingFlames extends AbstractFlexibleCard {
 
     private static final int COST = 2;
     private static final int UPGRADED_COST = 1;
-    private static final int MAGIC = 14;
-    private static final int HEAL = 20;
+    private static final int MAGIC = 6;
 
-    public PurifyingFlames() {
+    public BloodRage() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
         this.baseMagicNumber = this.magicNumber = MAGIC;
-        this.tags.add(CardTags.HEALING);
     }
 
     @Override
@@ -40,11 +37,15 @@ public class PurifyingFlames extends AbstractFlexibleCard {
         AbstractCreature target = null;
         if(m != null)
             target = m;
-        else if(this.target == CardTarget.SELF)
+        else if(this.target == CardTarget.SELF) {
             target = p;
+        }
 
-        this.addToBot(new DamageAction(target, new DamageInfo(p, this.magicNumber), AbstractGameAction.AttackEffect.FIRE));
-        this.addToBot(new ApplyPowerAction(p, p, new EndOfTurnHealPower(target, p, HEAL)));
+        this.addToBot(new DamageAction(target, new DamageInfo(p, this.magicNumber), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+
+        if (this.target == CardTarget.SELF)  // TODO Multi-strike enemy?
+            this.addToBot(new ApplyPowerAction(p, p, new MultiStrikePower(target, 2)));
+
     }
 
     @Override

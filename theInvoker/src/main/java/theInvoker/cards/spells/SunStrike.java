@@ -20,17 +20,17 @@ public class SunStrike extends AbstractSpellCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int MAGIC = 11;
-    private static final int UPGRADE_PLUS_MAGIC = 4;
+    private static final int DAMAGE = 11;
+    private static final int UPGRADE_PLUS_DAMAGE = 4;
 
     public SunStrike() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = MAGIC;
+        this.baseDamage = this.damage = DAMAGE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(m, p, new EndOfRoundDamagePower(m, p, this.magicNumber,
+        this.addToBot(new ApplyPowerAction(m, p, new EndOfRoundDamagePower(m, p, this.damage,
                 AbstractGameAction.AttackEffect.FIRE)));
     }
 
@@ -38,7 +38,7 @@ public class SunStrike extends AbstractSpellCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_MAGIC);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

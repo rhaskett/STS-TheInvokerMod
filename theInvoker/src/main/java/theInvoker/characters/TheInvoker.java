@@ -20,6 +20,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.InvokerMod;
 import theInvoker.cards.*;
+import theInvoker.cards.items.NullTalisman;
 import theInvoker.cards.items.SharedTango;
 import theInvoker.relics.BottleRelic;
 import theInvoker.relics.StarterRelic;
@@ -153,6 +154,7 @@ public class TheInvoker extends CustomPlayer {
         retVal.add(Attack.ID);
         retVal.add(Attack.ID);
         retVal.add(Exort.ID);
+        retVal.add(NullTalisman.ID);
 
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);

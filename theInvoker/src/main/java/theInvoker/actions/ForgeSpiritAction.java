@@ -15,8 +15,8 @@ public class ForgeSpiritAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.magicNumber, card.damageTypeForTurn),
-                    AttackEffect.FIRE));
+        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.magicNumber,
+                DamageInfo.DamageType.THORNS), AttackEffect.FIRE));
 //        target = CombatUtils.getRandomAliveMonster(AbstractDungeon.getMonsters(), AbstractDungeon.cardRandomRng);
 //        if (this.target != null) {
 //            card.calculateCardDamage((AbstractMonster) target);

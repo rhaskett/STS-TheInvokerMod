@@ -7,7 +7,7 @@
     <artifactId>TheInvoker</artifactId> <!--Keep a note of this one: this is the ID used in the "auto add cards" method-->
     <name>The Invoker</name>
     <version>0.0.1</version>
-    <description>A default base to start your own mod from.</description>
+    <description>Adds The Invoker character based on the hero from DOTA 2.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

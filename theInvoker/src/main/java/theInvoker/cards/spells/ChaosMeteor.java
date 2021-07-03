@@ -18,18 +18,18 @@ public class ChaosMeteor extends AbstractSpellCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 12; // TODO Should strength effect?
+    private static final int DAMAGE = 12;
     private static final int UPGRADE_PLUS_DMG = 4;
 
     public ChaosMeteor() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = DAMAGE;
+        baseDamage = damage = DAMAGE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // TODO Burning Effect?
-        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.magicNumber, damageTypeForTurn,
+        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.damage, damageTypeForTurn,
                 AbstractGameAction.AttackEffect.FIRE));
     }
 
@@ -38,7 +38,7 @@ public class ChaosMeteor extends AbstractSpellCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DMG);
+            upgradeDamage(UPGRADE_PLUS_DMG);
             initializeDescription();
         }
     }

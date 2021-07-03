@@ -18,26 +18,26 @@ public class ColdSnap extends AbstractSpellCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
-    private static final int MAGIC = 4;
-    private static final int UPGRADE_MAGIC = 1;
+    private static final int BLOCK = 4;
+    private static final int UPGRADE_PLUS_BLOCK = 1;
 
     public ColdSnap() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = MAGIC;
+        this.baseBlock = this.block = BLOCK;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeMagicNumber(UPGRADE_PLUS_BLOCK);
             initializeDescription();
         }
     }

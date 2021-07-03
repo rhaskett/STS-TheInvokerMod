@@ -47,11 +47,11 @@
   },
   "theInvoker:Cataclysm": {
     "NAME": "Cataclysm",
-    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage to ALL enemies at the end of the round."
+    "DESCRIPTION": "theinvoker:Spell. NL Deal !D! damage to ALL enemies at the end of the round."
   },
   "theInvoker:ChaosMeteor": {
     "NAME": "Chaos Meteor",
-    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage to ALL enemies."
+    "DESCRIPTION": "theinvoker:Spell. NL Deal !D! damage to ALL enemies."
   },
   "theInvoker:ColdSnap": {
     "NAME": "Cold Snap",
@@ -88,7 +88,7 @@
 
   "theInvoker:Dagon": {
     "NAME": "Dagon",
-    "DESCRIPTION": "theinvoker:Spell. Deal !M! damage.",
+    "DESCRIPTION": "Deal !M! damage.",
     "EXTENDED_DESCRIPTION": [
       " NL Can be upgraded 4 more times.",
       " NL Can be upgraded 3 more times.",
@@ -151,6 +151,10 @@
   "theInvoker:OrchidMalevolence": {
     "NAME": "Orchid Malevolence",
     "DESCRIPTION": "Deal !D! damage and theinvoker:Silence. NL theinvoker:Crafted."
+  },
+  "theInvoker:NullTalisman": {
+    "NAME": "Null Talisman",
+    "DESCRIPTION": "Deal !D! damage and gain !B! Block. NL theinvoker:Crafted."
   },
   "theInvoker:EnergyBooster": {
     "NAME": "Energy Booster",
@@ -236,6 +240,10 @@
     "DESCRIPTION": "theinvoker:Ally. NL If target enemy is attacking. Deal !M! damage to all enemies.",
     "EXTENDED_DESCRIPTION": ["Target enemy must be attacking."]
   },
+  "theInvoker:PlagueWard": {
+    "NAME": "Plague Ward",
+    "DESCRIPTION": "theinvoker:Ally. NL Apply !M! poison to a random enemy at the end of your turn."
+  },
   "theInvoker:SleightOfFist": {
     "NAME": "Sleight of Fist",
     "DESCRIPTION": "theinvoker:Ally. NL Deals !M! damage to all enemies. NL Double damage to bosses and elites."
@@ -251,6 +259,10 @@
   "theInvoker:FrostShield": {
     "NAME": "Frost Shield",
     "DESCRIPTION": "theinvoker:Ally. NL Gain !M! Block. NL Next turn, gain !M! Block."
+  },
+  "theInvoker:DoubleEdge": {
+    "NAME": "Double Edge",
+    "DESCRIPTION": "theinvoker:Ally. NL Deal !M! damage and apply 2 Vulnerable."
   },
   "theInvoker:CrystalNova": {
     "NAME": "Crystal Nova",
@@ -270,7 +282,7 @@
   },
   "theInvoker:PoisonNova": {
     "NAME": "Poison Nova",
-    "DESCRIPTION": "theinvoker:Ally. NL Apply !M! Poison to all enemies."
+    "DESCRIPTION": "theinvoker:Ally. NL Apply !M! Poison to all enemies. NL Exhaust."
   },
   "theInvoker:Track": {
     "NAME": "Track",
@@ -279,6 +291,10 @@
   "theInvoker:ShadowPoison": {
     "NAME": "Shadow Poison",
     "DESCRIPTION": "theinvoker:Ally. NL Apply theinvoker:Shadow_Poison that damages all enemies for !M! at the end of next turn."
+  },
+  "theInvoker:BloodRage": {
+    "NAME": "Blood Rage",
+    "DESCRIPTION": "theinvoker:Ally theinvoker:Flexable. NL Deal !M! damage.  If cast on the player theinvoker:Multi-Strike 2."
   },
 
 

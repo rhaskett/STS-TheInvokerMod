@@ -15,6 +15,7 @@ import static theInvoker.InvokerMod.makeID;
 public class SharedTango extends AbstractInvokerCard {
     public static final String ID = makeID(SharedTango.class.getSimpleName());
     public static final String IMG = makeCardPath("Tango_Shared.png");
+    public static final String UPGRADED_IMG = makeCardPath("Shared_Tango.png");
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -44,7 +45,7 @@ public class SharedTango extends AbstractInvokerCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            // TODO change image on upgrade
+//            loadCardImage(UPGRADED_IMG);  TODO Beta art?
             upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }

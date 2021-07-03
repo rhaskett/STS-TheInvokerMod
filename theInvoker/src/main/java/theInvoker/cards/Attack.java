@@ -17,7 +17,7 @@ public class Attack extends AbstractInvokerCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 5;  // Weaker due to Exort Orb and Multiattack
+    private static final int DAMAGE = 5;  // TODO Weaker due to Exort Orb and Multiattack
     private static final int UPGRADE_DAMAGE = 3;
 
 

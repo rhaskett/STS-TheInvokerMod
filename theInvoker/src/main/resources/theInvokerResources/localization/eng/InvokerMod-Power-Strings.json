@@ -8,6 +8,10 @@
                 "NAME": "Venom",
                 "DESCRIPTIONS": ["Whenever you attack apply #b", " #yPoison."]
         },
+        "theInvoker:PlagueWardPower": {
+                "NAME": "Plague Ward",
+                "DESCRIPTIONS": ["At the end of your turn, apply 1 poison to a random enemy %1$s%2$s time(s)."]
+        },
         "theInvoker:EnergyPower": {
                 "NAME": "Energy Boost",
                 "DESCRIPTIONS": ["At the start of the next", " turn", " #b"," turns", " gain 1 #yEnergy"]

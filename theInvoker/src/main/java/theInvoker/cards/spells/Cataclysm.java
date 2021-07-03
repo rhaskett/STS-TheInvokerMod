@@ -24,14 +24,14 @@ public class Cataclysm extends AbstractSpellCard {
 
     public Cataclysm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = DAMAGE;
+        baseDamage = damage = DAMAGE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters)
             if (!monster.isDead && !monster.isDying)
-                this.addToBot(new ApplyPowerAction(m, p, new EndOfRoundDamagePower(m, p, this.magicNumber,
+                this.addToBot(new ApplyPowerAction(monster, p, new EndOfRoundDamagePower(monster, p, this.damage,
                         AbstractGameAction.AttackEffect.FIRE)));
     }
 
@@ -39,7 +39,7 @@ public class Cataclysm extends AbstractSpellCard {
     public void upgrade(){
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DMG);
+            upgradeDamage(UPGRADE_PLUS_DMG);
             initializeDescription();
         }
     }

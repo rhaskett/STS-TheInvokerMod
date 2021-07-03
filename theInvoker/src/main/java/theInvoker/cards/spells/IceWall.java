@@ -28,7 +28,7 @@ public class IceWall extends AbstractSpellCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) { // TODO Find slow keyword?
+    public void use(AbstractPlayer p, AbstractMonster m) { // TODO Find slow keyword?  Remove Crystal Nova?
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             this.addToBot(new ApplyPowerAction(monster, p, new SlowPower(monster, 0)));
         }
