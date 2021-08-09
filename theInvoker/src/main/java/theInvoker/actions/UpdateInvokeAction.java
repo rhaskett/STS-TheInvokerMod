@@ -10,5 +10,6 @@ public class UpdateInvokeAction extends AbstractGameAction {
     public void update() {
         InvokeHelper.updateInvokes();
         this.isDone = true;
+        this.actionType = ActionType.SPECIAL;
     }
 }

@@ -10,27 +10,27 @@
 //import static theInvoker.InvokerMod.makeID;
 //
 //@AutoAdd.Ignore
-//public class RodOfAtosRecipe extends AbstractRecipeCard {
-//    public static final String ID = makeID(RodOfAtosRecipe.class.getSimpleName());
-//    public static final String IMG = makeCardPath("Attack.png"); // TODO IMG
+//public class VeilOfDiscordRecipe extends AbstractRecipeCard {
+//    public static final String ID = makeID(VeilOfDiscordRecipe.class.getSimpleName());
+//    public static final String IMG = makeCardPath("Skill.png");
 //
 //    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 //    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 //
-//    public static final String COMPONENT1 = Crown.ID;
-//    public static final String COMPONENT2 = StaffOfWizardry.ID;
+//    public static final String COMPONENT1 = SagesMask.ID;
+//    public static final String COMPONENT2 = Crown.ID;
 //
 //    private static final CardRarity RARITY = CardRarity.SPECIAL;
 //    private static final CardTarget TARGET = CardTarget.ENEMY;
-//    private static final CardType TYPE = CardType.ATTACK;
+//    private static final CardType TYPE = CardType.SKILL;
 //    public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 //
-//    private static final int COST = Crown.COST;
+//    private static final int COST = SagesMask.COST;
 //
-//    public RodOfAtosRecipe() {
+//    public VeilOfDiscordRecipe() {
 //        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET, COMPONENT1, COMPONENT2);
-//        this.baseMagicNumber = RodOfAtos.MAGIC;
 //    }
+//
 //
 //    @Override
 //    public String getRawDescription() {
@@ -39,6 +39,6 @@
 //
 //    @Override
 //    public AbstractInvokerCard createCard() {
-//        return new OrchidMalevolence();
+//        return new AssaultCuirass();
 //    }
 //}

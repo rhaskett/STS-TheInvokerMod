@@ -25,7 +25,7 @@ public class PlagueWard extends AbstractInvokerCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     public static final int COST = 1;
-    public static final int UPGRADED_COST = 2;
+    public static final int UPGRADED_COST = 0;
     public static final int MAGIC = 1;
 
     public PlagueWard() {

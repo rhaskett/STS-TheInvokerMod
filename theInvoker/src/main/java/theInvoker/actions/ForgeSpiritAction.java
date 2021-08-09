@@ -10,6 +10,7 @@ public class ForgeSpiritAction extends AbstractGameAction {
     private final AbstractCard card;
 
     public ForgeSpiritAction(AbstractCard card) {
+        this.actionType = ActionType.DAMAGE;
         this.card = card;
     }
 

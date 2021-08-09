@@ -20,8 +20,8 @@ public class IonShell extends AbstractInvokerCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int MAGIC = 4;
-    private static final int UPGRADED_MAGIC = 2;
+    private static final int MAGIC = 5;
+    private static final int UPGRADED_MAGIC = 3;
 
     public IonShell() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

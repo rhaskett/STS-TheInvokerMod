@@ -1,7 +1,6 @@
 package theInvoker.cards.items;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -34,7 +33,7 @@ public class SagesMask extends AbstractCombinesCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {  // TODO Do nothing?
         this.addToBot(new ApplyPowerAction(p, p, new EnergyPower(p, magicNumber), magicNumber));
     }
 

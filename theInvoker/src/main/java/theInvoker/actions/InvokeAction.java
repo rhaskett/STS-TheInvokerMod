@@ -16,9 +16,11 @@ public class InvokeAction extends AbstractGameAction {
 
     public InvokeAction() {
         super();
+        this.actionType = ActionType.SPECIAL;
     }
     public InvokeAction(int discount) {
         super();
+        this.actionType = ActionType.SPECIAL;
         this.discount = discount;
     }
 

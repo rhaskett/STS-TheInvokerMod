@@ -248,8 +248,9 @@ public class InvokerMod implements
         retVal.add(new MedallionOfCourageRecipe());
         retVal.add(new OrbOfCorrosionRecipe());
         retVal.add(new OrchidMalevolenceRecipe());
-        retVal.add(new RodOfAtosRecipe());
+//        retVal.add(new RodOfAtosRecipe());
         retVal.add(new MoonShardRecipe());
+//        retVal.add(new VeilOfDiscordRecipe());
 
         return retVal;
     }

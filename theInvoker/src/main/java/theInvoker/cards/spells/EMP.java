@@ -1,15 +1,15 @@
 package theInvoker.cards.spells;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import theInvoker.InvokerMod;
-import theInvoker.cards.AbstractInvokerCard;
 import theInvoker.characters.TheInvoker;
 
+@AutoAdd.Ignore
 public class EMP extends AbstractSpellCard {
     public static final String ID = InvokerMod.makeID(EMP.class.getSimpleName());
     public static final String IMG = InvokerMod.makeCardPath("EMP.png");
@@ -31,13 +31,10 @@ public class EMP extends AbstractSpellCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flash();
-//            this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn,
-//                    AbstractGameAction.AttackEffect.NONE));
-
 
             for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.isDead && !monster.isDying) {
-                    this.addToBot(new ApplyPowerAction(monster, p, new VulnerablePower(monster, this.magicNumber,
+                    this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber,
                             false), this.magicNumber));
                 }
             }

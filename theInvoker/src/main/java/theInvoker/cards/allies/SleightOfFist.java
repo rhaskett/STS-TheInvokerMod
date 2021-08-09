@@ -23,7 +23,7 @@ public class SleightOfFist extends AbstractInvokerCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int MAGIC = 6;
+    private static final int MAGIC = 7;
     private static final int UPGRADE_PLUS_MAGIC = 2;
 
     public SleightOfFist() {
@@ -38,7 +38,7 @@ public class SleightOfFist extends AbstractInvokerCard {
 
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             if (!monster.isDead && monster.type != AbstractMonster.EnemyType.NORMAL)
-                this.addToBot(new DamageAction(monster, new DamageInfo(p, damage, damageTypeForTurn),
+                this.addToBot(new DamageAction(monster, new DamageInfo(p, this.magicNumber, damageTypeForTurn),
                         AbstractGameAction.AttackEffect.FIRE));
         }
     }

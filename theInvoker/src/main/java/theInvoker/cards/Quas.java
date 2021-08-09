@@ -41,7 +41,7 @@ public class Quas extends AbstractInvokerCard {
         this.addToBot(new UpdateInvokeAction());
         this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
 
-        if (upgraded)
+        if (upgraded)  // TODO innate?
             this.addToBot(new DrawCardAction(p, 1));
     }
 

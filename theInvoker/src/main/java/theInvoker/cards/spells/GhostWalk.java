@@ -1,5 +1,6 @@
 package theInvoker.cards.spells;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -9,6 +10,7 @@ import theInvoker.InvokerMod;
 import theInvoker.actions.RemoveBuffsAction;
 import theInvoker.characters.TheInvoker;
 
+@AutoAdd.Ignore
 public class GhostWalk extends AbstractSpellCard {
     public static final String ID = InvokerMod.makeID(GhostWalk.class.getSimpleName());
     public static final String IMG = InvokerMod.makeCardPath("Ghost_Walk.png");
@@ -24,7 +26,7 @@ public class GhostWalk extends AbstractSpellCard {
 
     public GhostWalk() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
+        this.exhaust = true;  // TODO add exhaust to non invoked version.
         this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 

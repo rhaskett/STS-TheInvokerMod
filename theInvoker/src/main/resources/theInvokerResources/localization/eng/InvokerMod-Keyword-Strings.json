@@ -18,7 +18,7 @@
 
   {
     "NAMES": ["Consume", "Consumed", "consume", "consumed"],
-    "DESCRIPTION": "Consumed cards are permanently removed from your deck."
+    "DESCRIPTION": "Consumed cards are permanently removed from your deck when played."
   },
   {
     "NAMES": ["Combines", "combines"],
@@ -47,7 +47,7 @@
   },
   {
     "NAMES": ["Multi-Strike", "multi-strike"],
-    "DESCRIPTION": "Your next basic Attack card is played multiple times."
+    "DESCRIPTION": "Your next basic Attack card is played multiple extra times or, if applied to an enemy, that enemies next attack strikes extra times."
   },
   {
     "NAMES": ["Flexible", "flexible"],
@@ -68,7 +68,17 @@
       "shadow_poison",
       "Shadow_Poison"
     ],
-    "DESCRIPTION": "Each additional application of #yShadow #yPoison doubles the current stacks but delays the damage until the next round."
+    "DESCRIPTION": "Deals damage at the end of the next round and then clears. Each additional application of #yShadow #yPoison doubles the current #yShadow #yPoison stacks and delays the damage until the next round."
+  },
+
+  {
+  "PROPER_NAME": "Spell Weakness",
+  "NAMES": [
+  "Spell Weakness",
+  "SpellWeakness",
+  "Spell_Weakness"
+  ],
+  "DESCRIPTION": "The next #yInvoked #ySpell card deals double damage to this target."
   },
 
   {
@@ -78,7 +88,7 @@
       "energy_regen",
       "Energy_Regen"
     ],
-    "DESCRIPTION": "Gain [E] at the start of each turn."
+    "DESCRIPTION": "Gain one extra [E] at the start of your turn until your energy regen is used up."
   },
   {
     "PROPER_NAME": "Echo Shell",

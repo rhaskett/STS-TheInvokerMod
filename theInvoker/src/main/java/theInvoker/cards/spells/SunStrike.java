@@ -1,5 +1,6 @@
 package theInvoker.cards.spells;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,6 +11,7 @@ import theInvoker.powers.EndOfRoundDamagePower;
 import static theInvoker.InvokerMod.makeCardPath;
 import static theInvoker.InvokerMod.makeID;
 
+@AutoAdd.Ignore
 public class SunStrike extends AbstractSpellCard {
     public static final String ID = makeID(SunStrike.class.getSimpleName());
     public static final String IMG = makeCardPath("Sun_Strike.png");
@@ -20,8 +22,8 @@ public class SunStrike extends AbstractSpellCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 11;
-    private static final int UPGRADE_PLUS_DAMAGE = 4;
+    private static final int DAMAGE = 14;
+    private static final int UPGRADE_PLUS_DAMAGE = 6;
 
     public SunStrike() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

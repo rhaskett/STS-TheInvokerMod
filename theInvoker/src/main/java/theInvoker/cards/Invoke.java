@@ -18,7 +18,7 @@ import java.util.Arrays;
 
 public class Invoke extends AbstractInvokerCard {
     public static final String ID = InvokerMod.makeID(Invoke.class.getSimpleName());
-    public static final String IMG = InvokerMod.makeCardPath("Invoke.png");  // TODO picture
+    public static final String IMG = InvokerMod.makeCardPath("Invoke.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -39,6 +39,8 @@ public class Invoke extends AbstractInvokerCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new InvokeAction(this.discount));
+
+        // TODO Upgrade missing
     }
 
     @Override

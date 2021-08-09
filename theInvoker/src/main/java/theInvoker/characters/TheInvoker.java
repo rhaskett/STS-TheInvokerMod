@@ -20,8 +20,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theInvoker.InvokerMod;
 import theInvoker.cards.*;
+import theInvoker.cards.allies.Bloodrage;
 import theInvoker.cards.items.NullTalisman;
 import theInvoker.cards.items.SharedTango;
+import theInvoker.cards.spells.DeafeningBlast;
 import theInvoker.relics.BottleRelic;
 import theInvoker.relics.StarterRelic;
 

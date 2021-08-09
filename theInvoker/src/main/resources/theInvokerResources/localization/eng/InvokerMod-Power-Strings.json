@@ -24,6 +24,10 @@
                 "NAME": "Multi-Strike",
                 "DESCRIPTIONS": ["Your next basic Attack card is played %1$s time(s)."]
         },
+        "theInvoker:MultiStrikeEnemyPower": {
+                "NAME": "Multi-Strike",
+                "DESCRIPTIONS": ["The enemies next attack strikes %1$s more time(s)."]
+        },
         "theInvoker:EchoShellPower": {
                 "NAME": "Echo Shell",
                 "DESCRIPTIONS": ["The next %1$s time(s) you are attacked reflect the damage back to the attacker."]

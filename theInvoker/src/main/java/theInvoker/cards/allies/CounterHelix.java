@@ -29,7 +29,7 @@ public class CounterHelix extends AbstractInvokerCard {
     private static final int MAGIC = 5;
     private static final int UPGRADE_PLUS_MAGIC = 2;
 
-    public CounterHelix() {
+    public CounterHelix() {  // TODO Play on draw?
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = MAGIC;
     }

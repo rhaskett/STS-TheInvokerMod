@@ -55,15 +55,15 @@
   },
   "theInvoker:ColdSnap": {
     "NAME": "Cold Snap",
-    "DESCRIPTION": "theinvoker:Spell. NL Gain !M! Block 3 times."
+    "DESCRIPTION": "theinvoker:Spell. NL Gain !B! Block 3 times."
   },
   "theInvoker:DeafeningBlast": {
     "NAME": "Deafening Blast",
-    "DESCRIPTION": "theinvoker:Spell. NL Apply !M! Weak to all enemies."
+    "DESCRIPTION": "theinvoker:Spell. NL Apply !M! Vulnerable to all enemies."
   },
   "theInvoker:EMP": {
     "NAME": "E.M.P.",
-    "DESCRIPTION": "theinvoker:Spell. NL Apply !M! Vulnerable to all enemies."
+    "DESCRIPTION": "theinvoker:Spell. NL Apply !M! Weak to all enemies."
   },
   "theInvoker:ForgeSpirit": {
     "NAME": "Forge Spirit",
@@ -75,11 +75,11 @@
   },
   "theInvoker:IceWall": {
     "NAME": "Ice Wall",
-    "DESCRIPTION": "theinvoker:Spell. NL Apply Slow to all enemies."
+    "DESCRIPTION": "theinvoker:Spell. NL Apply Slow to all enemies. NL Gain !B! Block."
   },
   "theInvoker:SunStrike": {
     "NAME": "Sun Strike",
-    "DESCRIPTION": "theinvoker:Spell. NL Deal !M! damage at the end of the round."
+    "DESCRIPTION": "theinvoker:Spell. NL Deal !D! damage at the end of the round."
   },
   "theInvoker:Tornado": {
     "NAME": "Tornado",
@@ -186,7 +186,7 @@
   },
   "theInvoker:FalconBladeRecipe": {
     "NAME": "Falcon Blade",
-    "DESCRIPTION": "Doubles card effects and cost. NL theinvoker:Craftable from "
+    "DESCRIPTION": "Doubles component card effects and cost. NL theinvoker:Craftable from "
   },
   "theInvoker:FalconBlade": {
     "NAME": "Falcon Blade",
@@ -224,6 +224,15 @@
     "NAME": "Moon Shard",
     "DESCRIPTION": "Gain the theinvoker:Multi-Strike at the start of each turn. NL theinvoker:Craftable from "
   },
+  "theInvoker:VeilOfDiscord": {
+    "NAME": "Veil of Discord",
+    "DESCRIPTION": "Deal !D! damage and gain !B! Block. NL Apply theinvoker:SpellWeakness. NL theinvoker:Crafted."
+  },
+  "theInvoker:VeilOfDiscordRecipe": {
+    "NAME": "Veil of Discord",
+    "DESCRIPTION": "Adds theinvoker:SpellWeakness. NL theinvoker:Craftable from "
+  },
+
 
   "theInvoker:TownPortalScroll": {
     "NAME": "Town Portal Scroll",
@@ -242,7 +251,7 @@
   },
   "theInvoker:PlagueWard": {
     "NAME": "Plague Ward",
-    "DESCRIPTION": "theinvoker:Ally. NL Apply !M! poison to a random enemy at the end of your turn."
+    "DESCRIPTION": "theinvoker:Ally. NL Apply !M! Poison to a random enemy at the end of your turn."
   },
   "theInvoker:SleightOfFist": {
     "NAME": "Sleight of Fist",
@@ -274,7 +283,7 @@
   },
   "theInvoker:IonShell": {
     "NAME": "Ion Shell",
-    "DESCRIPTION": "theinvoker:Ally. NL Enemy gains a debuff that damages all other enemies for !M! each round."
+    "DESCRIPTION": "theinvoker:Ally. NL Target enemy deals !M! damages all other enemies at the end of every round."
   },
   "theInvoker:PurifyingFlames": {
     "NAME": "Purifying Flames",
@@ -290,13 +299,12 @@
   },
   "theInvoker:ShadowPoison": {
     "NAME": "Shadow Poison",
-    "DESCRIPTION": "theinvoker:Ally. NL Apply theinvoker:Shadow_Poison that damages all enemies for !M! at the end of next turn."
+    "DESCRIPTION": "theinvoker:Ally. NL Apply !M! theinvoker:Shadow_Poison to all enemies."
   },
-  "theInvoker:BloodRage": {
-    "NAME": "Blood Rage",
-    "DESCRIPTION": "theinvoker:Ally theinvoker:Flexable. NL Deal !M! damage.  If cast on the player theinvoker:Multi-Strike 2."
+  "theInvoker:Bloodrage": {
+    "NAME": "Bloodrage",
+    "DESCRIPTION": "theinvoker:Ally theinvoker:Flexible. NL Deals !M! damage and applies theinvoker:Multi-Strike 3."
   },
-
 
   "theInvoker:DefaultCommonAttack": {
     "NAME": "Strike",

@@ -7,27 +7,30 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theInvoker.actions.MultiAttackEnemyAction;
 import theInvoker.cards.AbstractFlexibleCard;
 import theInvoker.characters.TheInvoker;
+import theInvoker.powers.MultiStrikeEnemyPower;
 import theInvoker.powers.MultiStrikePower;
 
 import static theInvoker.InvokerMod.makeCardPath;
 import static theInvoker.InvokerMod.makeID;
 
-public class BloodRage extends AbstractFlexibleCard {
-    public static final String ID = makeID(BloodRage.class.getSimpleName());
-    public static final String IMG = makeCardPath("Blood_Rage.png");
+public class Bloodrage extends AbstractFlexibleCard {
+    public static final String ID = makeID(Bloodrage.class.getSimpleName());
+    public static final String IMG = makeCardPath("Bloodrage.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;
-    private static final int UPGRADED_COST = 1;
-    private static final int MAGIC = 6;
+    private static final int COST = 1;
+    private static final int UPGRADED_COST = 0;
+    private static final int MAGIC = 12;
+    private static final int MULTI_STRIKE = 3;
 
-    public BloodRage() {
+    public Bloodrage() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = MAGIC;
     }
@@ -37,14 +40,16 @@ public class BloodRage extends AbstractFlexibleCard {
         AbstractCreature target = null;
         if(m != null)
             target = m;
-        else if(this.target == CardTarget.SELF) {
-            target = p;
-        }
+        else
+            if(this.target == CardTarget.SELF)
+                target = p;
 
         this.addToBot(new DamageAction(target, new DamageInfo(p, this.magicNumber), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 
-        if (this.target == CardTarget.SELF)  // TODO Multi-strike enemy?
-            this.addToBot(new ApplyPowerAction(p, p, new MultiStrikePower(target, 2)));
+        if (this.target == CardTarget.SELF)
+            this.addToBot(new ApplyPowerAction(target, p, new MultiStrikePower(target, MULTI_STRIKE)));
+        else
+            this.addToBot(new ApplyPowerAction(target, p, new MultiStrikeEnemyPower(target, MULTI_STRIKE)));
 
     }
 

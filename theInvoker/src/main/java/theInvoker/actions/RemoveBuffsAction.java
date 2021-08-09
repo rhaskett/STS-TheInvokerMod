@@ -11,6 +11,7 @@ public class RemoveBuffsAction extends AbstractGameAction {
     public RemoveBuffsAction(AbstractCreature c) {
         this.c = c;
         this.duration = 0.5F;
+        this.actionType = ActionType.SPECIAL;
     }
 
     public void update() {

@@ -1,13 +1,15 @@
 package theInvoker.cards.spells;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
 
+@AutoAdd.Ignore
 public class DeafeningBlast extends AbstractSpellCard {
     public static final String ID = InvokerMod.makeID(DeafeningBlast.class.getSimpleName());
     public static final String IMG = InvokerMod.makeCardPath("Deafening_Blast.png");
@@ -19,7 +21,7 @@ public class DeafeningBlast extends AbstractSpellCard {
 
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;
-    private static final int AMOUNT = 2;
+    private static final int AMOUNT = 3;
 
     public DeafeningBlast() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -29,7 +31,7 @@ public class DeafeningBlast extends AbstractSpellCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
          for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters)
-             this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber,
+             this.addToBot(new ApplyPowerAction(monster, p, new VulnerablePower(monster, this.magicNumber,
                      false), this.magicNumber));
     }
 

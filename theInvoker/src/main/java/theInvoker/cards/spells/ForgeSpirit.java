@@ -1,5 +1,6 @@
 package theInvoker.cards.spells;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,6 +13,7 @@ import theInvoker.powers.VenomPower;
 import static theInvoker.InvokerMod.makeCardPath;
 import static theInvoker.InvokerMod.makeID;
 
+@AutoAdd.Ignore
 public class ForgeSpirit extends AbstractSpellCard {
     public static final String ID = makeID(ForgeSpirit.class.getSimpleName());
     public static final String IMG = makeCardPath("Forge_Spirit.png");

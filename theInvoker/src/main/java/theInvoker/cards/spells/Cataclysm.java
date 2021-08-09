@@ -1,5 +1,6 @@
 package theInvoker.cards.spells;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,6 +10,7 @@ import theInvoker.InvokerMod;
 import theInvoker.characters.TheInvoker;
 import theInvoker.powers.EndOfRoundDamagePower;
 
+@AutoAdd.Ignore
 public class Cataclysm extends AbstractSpellCard {
     public static final String ID = InvokerMod.makeID(Cataclysm.class.getSimpleName());
     public static final String IMG = InvokerMod.makeCardPath("Sun_Strike.png");
@@ -19,7 +21,7 @@ public class Cataclysm extends AbstractSpellCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 15;
+    private static final int DAMAGE = 25;
     private static final int UPGRADE_PLUS_DMG = 6;
 
     public Cataclysm() {

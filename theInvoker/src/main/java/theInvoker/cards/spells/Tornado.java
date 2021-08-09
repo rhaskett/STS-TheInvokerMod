@@ -1,5 +1,6 @@
 package theInvoker.cards.spells;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,6 +11,7 @@ import theInvoker.InvokerMod;
 import theInvoker.actions.RemoveBuffsAction;
 import theInvoker.characters.TheInvoker;
 
+@AutoAdd.Ignore
 public class Tornado extends AbstractSpellCard {
     public static final String ID = InvokerMod.makeID(Tornado.class.getSimpleName());
     public static final String IMG = InvokerMod.makeCardPath("Tornado.png");
@@ -19,8 +21,8 @@ public class Tornado extends AbstractSpellCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;
-    private static final int UPGRADED_COST = 1;
+    private static final int COST = 1;
+    private static final int UPGRADED_COST = 0;
 
     public Tornado() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

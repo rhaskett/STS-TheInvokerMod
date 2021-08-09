@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theInvoker.actions.ShadowPoisonLoseHPAction;
 
-public class ShadowPoisonPower extends CustomInvokerModPower implements CustomStackBehaviorPower, HealthBarRenderPower {
+public class ShadowPoisonPower extends CustomInvokerModPower implements HealthBarRenderPower {
 	public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(ShadowPoisonPower.class);
 
 	protected Color redColor2 = Color.MAGENTA.cpy();
@@ -67,7 +67,7 @@ public class ShadowPoisonPower extends CustomInvokerModPower implements CustomSt
 	}
 
 	@Override
-    public void stackPower(AbstractPower newInstanceOfSamePower) {
+    public void stackPower(int stackAmount) {
 		this.thisTurn = false;
 		this.amount *= 2;
     }

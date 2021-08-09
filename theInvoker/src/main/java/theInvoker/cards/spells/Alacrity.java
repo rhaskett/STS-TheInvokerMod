@@ -1,5 +1,6 @@
 package theInvoker.cards.spells;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,6 +12,7 @@ import theInvoker.powers.MultiStrikePower;
 import static theInvoker.InvokerMod.makeCardPath;
 import static theInvoker.InvokerMod.makeID;
 
+@AutoAdd.Ignore
 public class Alacrity extends AbstractSpellCard {
     public static final String ID = makeID(Alacrity.class.getSimpleName());
     public static final String IMG = makeCardPath("Alacrity.png");
@@ -24,7 +26,7 @@ public class Alacrity extends AbstractSpellCard {
     public static final CardColor COLOR = TheInvoker.Enums.COLOR_GRAY;
 
     public static final int COST = 1;
-    public static final int MAGIC = 3;
+    public static final int MAGIC = 4;
     public static final int UPGRADE_PLUS_MAGIC = 1;
 
     public Alacrity() {

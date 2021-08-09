@@ -35,11 +35,9 @@ public class ShackleShot extends AbstractInvokerCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractMonster second = null;
         ArrayList<AbstractMonster> tmp = new ArrayList<>();
-        for (AbstractMonster other : AbstractDungeon.getMonsters().monsters) {
-            if (!m.halfDead && !m.isDying && !m.isEscaping && other != m) {
-                tmp.add(m);
-            }
-        }
+        for (AbstractMonster other : AbstractDungeon.getMonsters().monsters)
+            if (!m.halfDead && !m.isDying && !m.isEscaping && other != m)
+                tmp.add(other);
 
         if (tmp.size() > 0)
             second = tmp.get(MathUtils.random(0, tmp.size() - 1));
@@ -48,7 +46,7 @@ public class ShackleShot extends AbstractInvokerCard {
             addToBot(new ApplyPowerAction(m, p, new StunMonsterPower(m, 1), 1));
             addToBot(new ApplyPowerAction(second, p, new StunMonsterPower(second, 1), 1));
         }
-        // todo else explain why it didn't work
+        // TODO else explain why it didn't work
     }
 
     @Override
